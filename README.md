@@ -2,9 +2,9 @@
 
 ## 这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
+<br/>
+<br/>
 
-<br/>
-<br/>
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET
