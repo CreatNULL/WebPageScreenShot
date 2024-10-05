@@ -241,3 +241,7 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 
 ![image](https://github.com/user-attachments/assets/c6431cab-5905-4c25-8d96-f59f926d6da7)
 
+
+## 有 bug 联系作者:
+备注： GitHub
+![13f909da0b79b8341ff15a5ce5c194a](https://github.com/user-attachments/assets/c99d053d-7d1d-4353-9e9a-a11d1c14d897)
