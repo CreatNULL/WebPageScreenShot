@@ -32,16 +32,16 @@
 <br/>
 <br/>
 <br/>
-## 依赖
 
+## 依赖
 ```text
 pip install DrissionPage
 ```
+<br/>
+<br/>
+<br/>
+<br/>
 
-<br/>
-<br/>
-<br/>
-<br/>
 ## 使用
 在次之前需要了解，这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。
 **<span style="color:red">注意:</span>**
@@ -52,6 +52,7 @@ pip install DrissionPage
 <br/>
 <br/>
 <br/>
+
 ### 一、基本访问
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com 
@@ -59,16 +60,19 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 程序首次运行后，会创建配置文件`config.ini`
 <br/>
 <br/>
+
 ##### 程序运行后：
 - 会创建两个目录: `WebPageScreenshotExtensions` 和 `WebPageScreenshotLog` ,分别保存设置代理时创建的插件，和程序运行的日志 (为什么文件名这么长? 我不是有病哦，怕有和其它的冲突)
 - 无头模式运行，打开一个白色的页面，但是关掉即可，问题不大
 - 一个输出文件名为 result.html
 <br/>
 <br/>
+
 ##### 运行终端显示:
 ![image](https://github.com/user-attachments/assets/0df0a373-0170-4cb9-8640-14b66a7ed535)
 <br/>
 <br/>
+
 ##### 输出文件:
 打开后会显示网站标题和缩略图
 ![image](https://github.com/user-attachments/assets/7a27896b-2c8e-4f7e-96d6-c698598b4a54)
@@ -79,6 +83,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 ![image](https://github.com/user-attachments/assets/04ce64b7-446c-44a4-8e7f-8cbaa967cfe3)
 <br/>
 <br/>
+
 #### 访问多个URL 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.com/ --url https://www.baidu.com 
@@ -86,6 +91,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.co
 ![image](https://github.com/user-attachments/assets/5f75b66f-e731-48c0-a04b-1bcb14d46086)
 <br/>
 <br/>
+
 ### 二、使用代理
 #### 代理抓包软件
 ```
@@ -94,6 +100,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ![image](https://github.com/user-attachments/assets/656d0d42-1ebb-40fc-aaca-e8a801e3df7e)
 <br/>
 <br/>
+
 #### 加载证书可以使用参数 --ssl-cert 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083 --ssl-cert .\cert\mitm-server.crt
@@ -101,12 +108,14 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 多个证书 --ssl-cert 证书1  --ssl-cert 证书2
 <br/>
 <br/>
+
 #### 设置代理，理论上我这个是支持账号密码的，因为我是通过插件实现的
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pwd@127.0.0.1:8083 
 ```
 <br/>
 <br/>
+
 #### 设置代理，跳过指定的域名
 可以看到我们第一次抓包，会有很多的没用的域名，可以通过参数来过滤, 抓取到的数据包就干净了很多
 ```
@@ -122,6 +131,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 <br/>
+
 ### 三、请求携带参数
 ```
  python .\webPageScreenshot.py --url http://www.localhost.com --params '{\"User-Agent\": \"my-agent\"}'  --proxy http://127.0.0.1:8083
@@ -131,6 +141,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 <br/>
+
 ### 四、携带请求json
 ```
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json '{"page": 1, "num": 2}'
@@ -140,6 +151,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 <br/>
+
 ### 五、携带请求data
 ```
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --data "测试=1"
@@ -150,6 +162,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 <br/>
+
 ### 六、携带请求 file
 ```
 ```
@@ -157,6 +170,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 <br/>
+
 ### 七、请求添加头部
 
 如果服务不支，则会返回  Document is empty 类似的错误
