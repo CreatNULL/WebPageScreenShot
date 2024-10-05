@@ -111,11 +111,12 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pw
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083 --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com"
 ```
 ![image](https://github.com/user-attachments/assets/50a912bb-15c9-4ce9-8f29-08efe4bb9de7)
+
 实现方法:
-通过对于s和d模式下的，首先通过, 该函数匹配规则，输入的域名是否需要代理
-![image](https://github.com/user-attachments/assets/4312bd8f-386a-4b28-93e2-aac490a2bd15)
-不需要则设置为 None，但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载浏览器插件实现
-所以需要注意的是，如果你指定的是 d 模式下的域名，则 python 的正则可能不适用
+  通过对于s和d模式下的，首先通过, 该函数匹配规则，输入的域名是否需要代理
+  ![image](https://github.com/user-attachments/assets/4312bd8f-386a-4b28-93e2-aac490a2bd15)
+  不需要则设置为 None，但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载浏览器插件实现
+  所以需要注意的是，如果你指定的是 d 模式下的域名，则 python 的正则可能不适用
 
 
 ### 三、请求携带参数
