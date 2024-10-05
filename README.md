@@ -113,6 +113,8 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 <br/>
 
 ##### 输出文件:
+会自动统计当前的数量<br/>
+![image](https://github.com/user-attachments/assets/bf315448-db76-4e62-aebd-19bd1897923a)<br/>
 打开后会显示网站标题和缩略图<br/>
 ![image](https://github.com/user-attachments/assets/7a27896b-2c8e-4f7e-96d6-c698598b4a54)<br/>
 鼠标移动到缩略图后，图片会放大显示，方便快速浏览<br/>
@@ -151,7 +153,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 
-#### 加载证书可以使用参数 --ssl-cert 
+#### 加载证书可以使用参数 --ssl-cert （未验证）
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083 --ssl-cert .\cert\mitm-server.crt
 ```
