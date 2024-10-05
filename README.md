@@ -200,7 +200,14 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 
 ### 六、携带请求 file
 ```
+python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"config.ini\": \"./config.ini\"}' --proxy http://127.0.0.1:8080
 ```
+![image](https://github.com/user-attachments/assets/7926c24a-f9e0-4ed2-b844-88fe85280e88)
+
+##### 通过配置文件
+![image](https://github.com/user-attachments/assets/0308be17-b62d-452a-b26c-bcf8cbe541b0)
+![image](https://github.com/user-attachments/assets/feb59239-7e80-45d7-87e3-635c38612a05)
+
 <br/>
 <br/>
 <br/>
