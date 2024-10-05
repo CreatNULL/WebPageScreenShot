@@ -110,7 +110,6 @@ python .\webPageScreenshot.py --config .\config.ini
 ![image](https://github.com/user-attachments/assets/3b4fdecf-09e7-4d69-bd6e-86fcb0c20700)<br/>
 
 
-
 #### 访问多个URL 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.com/ --url https://www.baidu.com 
@@ -264,12 +263,17 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 <br/>
 <br/>
 <br/>
-### 报错:
+
+### 九、报错:
 ![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
 解决:<br/>
 在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
 原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿
 ![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)
+
+### 十、测试:
+![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
+![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
 
 
 ## 有 bug 联系作者:
