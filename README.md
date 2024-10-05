@@ -1,4 +1,3 @@
-# 改进中（处理代理插件使用后不卸载问题）
 # Python实现的访问网页截图
 
 ## 这是什么
@@ -9,6 +8,7 @@
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET
 - 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
+- ctrl + C 可以结束，理论上，不会有残留的进程，但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，Windows taskkill /IM chrome.exe /F,嘿嘿
 访问截图，输出一个html文件，截图也在里面，嘿嘿嘿
 
 ## 自问自答环节:
