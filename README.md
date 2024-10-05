@@ -91,12 +91,28 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 ![image](https://github.com/user-attachments/assets/04ce64b7-446c-44a4-8e7f-8cbaa967cfe3)
 <br/>
 <br/>
+##### 使用配置文件
+```
+python .\webPageScreenshot.py --config .\config.ini
+```
+![image](https://github.com/user-attachments/assets/303d0ba7-6ef2-42ef-b3e8-a6891b682a74)<br/>
+
+![image](https://github.com/user-attachments/assets/3b4fdecf-09e7-4d69-bd6e-86fcb0c20700)<br/>
+
+
 
 #### 访问多个URL 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.com/ --url https://www.baidu.com 
 ```
-![image](https://github.com/user-attachments/assets/5f75b66f-e731-48c0-a04b-1bcb14d46086)
+![image](https://github.com/user-attachments/assets/5f75b66f-e731-48c0-a04b-1bcb14d46086)<br/>
+##### 使用配置文件
+使用, 分割
+![image](https://github.com/user-attachments/assets/c6b649aa-74b3-416d-b3c6-d89b9649c996)<br/>
+![image](https://github.com/user-attachments/assets/16059bb2-732e-4deb-9d4a-aa015b26b2f6)<br/>
+使用 [] 表示
+![image](https://github.com/user-attachments/assets/c5f5a1e5-e10a-416a-8b04-67e93516717e)<br/>
+
 <br/>
 <br/>
 
@@ -180,7 +196,6 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
-### 六、
 ### 六、携带请求 file
 ```
 ```
@@ -199,7 +214,8 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 ![image](https://github.com/user-attachments/assets/359628f4-9607-49a4-a99a-1f9ba27359e4)
 
 通过配置文件指定
-![image](https://github.com/user-attachments/assets/3d38d356-eb2d-457c-8734-e432d8b08357)
+![image](https://github.com/user-attachments/assets/df16e97e-b679-459d-855a-0e64a2acec49)
+![image](https://github.com/user-attachments/assets/74816905-390b-4299-8142-3c082733897e)
 
 
 
