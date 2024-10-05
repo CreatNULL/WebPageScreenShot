@@ -133,6 +133,9 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pwd@127.0.0.1:8083 
 ```
+##### 使用配置文件
+![image](https://github.com/user-attachments/assets/e8970174-7ba4-4ced-95b5-ae50934c65ed)
+
 <br/>
 <br/>
 
@@ -144,12 +147,12 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ![image](https://github.com/user-attachments/assets/50a912bb-15c9-4ce9-8f29-08efe4bb9de7)
 <br/>
 实现方法:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
-&nbsp;&nbsp;&nbsp;&nbsp;但是对于 d 模式下，会加载其他的不相关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;对于 s 模式下，通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
+&nbsp;&nbsp;&nbsp;&nbsp;对于 d 模式下，会加载其他的不相关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
 ![image](https://github.com/user-attachments/assets/9eb110af-cbe0-44b8-b683-40f5416c0f26)
-
-
-
+##### 通过配置文件
+![image](https://github.com/user-attachments/assets/9eca9d16-799b-45cd-9acf-ed674e860aa3)<br/>
+![image](https://github.com/user-attachments/assets/273cb549-57fe-4bf4-af09-aad1095f7f53)<br/>
 <br/>
 <br/>
 <br/>
@@ -186,7 +189,10 @@ python .\webPageScreenshot.py --config .\config.ini
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --data "测试=1"
 
 ```
-![image](https://github.com/user-attachments/assets/35d70513-ac3f-412c-b149-0362caa7f6e6)
+![image](https://github.com/user-attachments/assets/35d70513-ac3f-412c-b149-0362caa7f6e6)<br/>
+##### 使用配置文件
+![image](https://github.com/user-attachments/assets/9e927197-5c78-4551-bc19-386fd7f3cf9d)<br/>
+![image](https://github.com/user-attachments/assets/8d4695bd-3f53-479f-ba91-63b443f41ee1)<br/>
 <br/>
 <br/>
 <br/>
