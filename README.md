@@ -4,6 +4,10 @@
 一个访问网页，并且截图的工具.
 <br/>
 <br/>
+- 支持 POST （JSON、data、file）
+- 支持 GET (json、data、file)
+访问截图，输出一个html文件，截图也在里面，嘿嘿嘿
+
 ## 自问自答环节:
 <br/>
 
