@@ -82,21 +82,19 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 <br/>
 
 ##### 输出文件:
-打开后会显示网站标题和缩略图
-![image](https://github.com/user-attachments/assets/7a27896b-2c8e-4f7e-96d6-c698598b4a54)
-鼠标移动到缩略图后，图片会放大显示，方便快速浏览
-![image](https://github.com/user-attachments/assets/632047ee-ed4d-4205-834a-b5f901414b71)
-点击标题后，详细信息展开
-![image](https://github.com/user-attachments/assets/9c1add3c-0b47-4452-88e8-249ac618d0ba)
-![image](https://github.com/user-attachments/assets/04ce64b7-446c-44a4-8e7f-8cbaa967cfe3)
+打开后会显示网站标题和缩略图<br/>
+![image](https://github.com/user-attachments/assets/7a27896b-2c8e-4f7e-96d6-c698598b4a54)<br/>
+鼠标移动到缩略图后，图片会放大显示，方便快速浏览<br/>
+![image](https://github.com/user-attachments/assets/632047ee-ed4d-4205-834a-b5f901414b71)<br/>
+点击标题后，详细信息展开<br/>
+![image](https://github.com/user-attachments/assets/9c1add3c-0b47-4452-88e8-249ac618d0ba) <br/>
+![image](https://github.com/user-attachments/assets/04ce64b7-446c-44a4-8e7f-8cbaa967cfe3) </br>
 <br/>
 <br/>
 ##### 使用配置文件
 ```
 python .\webPageScreenshot.py --config .\config.ini
 ```
-![image](https://github.com/user-attachments/assets/303d0ba7-6ef2-42ef-b3e8-a6891b682a74)<br/>
-
 ![image](https://github.com/user-attachments/assets/3b4fdecf-09e7-4d69-bd6e-86fcb0c20700)<br/>
 
 
@@ -107,12 +105,10 @@ python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.co
 ```
 ![image](https://github.com/user-attachments/assets/5f75b66f-e731-48c0-a04b-1bcb14d46086)<br/>
 ##### 使用配置文件
-使用, 分割
+使用, 分割 或 使用 [] 表示<br/>
 ![image](https://github.com/user-attachments/assets/c6b649aa-74b3-416d-b3c6-d89b9649c996)<br/>
-![image](https://github.com/user-attachments/assets/16059bb2-732e-4deb-9d4a-aa015b26b2f6)<br/>
-使用 [] 表示
 ![image](https://github.com/user-attachments/assets/c5f5a1e5-e10a-416a-8b04-67e93516717e)<br/>
-
+![image](https://github.com/user-attachments/assets/16059bb2-732e-4deb-9d4a-aa015b26b2f6)<br/>
 <br/>
 <br/>
 
