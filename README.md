@@ -141,7 +141,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 
-#### 设置代理，理论上我这个是支持账号密码的，因为我是通过插件实现的
+#### 设置代理
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pwd@127.0.0.1:8083 
 ```
@@ -150,6 +150,15 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pw
 
 <br/>
 <br/>
+
+#### 设置代理，使用账号密码
+![image](https://github.com/user-attachments/assets/e0d73148-d55d-4d60-a203-af4700481258)
+没使用账号密码前:<br/>
+![image](https://github.com/user-attachments/assets/550b03d1-c42a-4a92-bc3e-3791e1b7cce6)
+使用账号密码后: <br/>
+![image](https://github.com/user-attachments/assets/49fbcd52-cbb9-4a29-8fd4-6c7278102090)
+![image](https://github.com/user-attachments/assets/ce7632bc-e8b3-45b3-a73d-99095d7df9de)
+
 
 #### 设置代理，跳过指定的域名
 可以看到我们第一次抓包，会有很多的没用的域名，可以通过参数来过滤, 抓取到的数据包就干净了很多
