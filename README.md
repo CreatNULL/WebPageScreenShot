@@ -177,7 +177,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 ```
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json="666"
 ```
-可以看到虽然报错，但是确实请求了
+可以看到虽然报错，但是确实请求了<br/>
 ![image](https://github.com/user-attachments/assets/5ccddaec-6df5-4a7a-8c14-f6ba89fd26ac)
 
 
