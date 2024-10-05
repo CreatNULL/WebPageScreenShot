@@ -46,6 +46,7 @@ def screenshot_page(
         del_cookies: bool = False,  # 是否清除所有 Cookie
         proxy: dict = None,  # 代理设置
         verify_ssl: bool = False,  # 是否验证 SSL 证书
+        # hide: bool = True, # 隐藏窗口仅仅支持Windows
 ):
     r"""
     截取指定页面的截图并返回页面的相关信息。headers/params/data/json/file/cookies/allow_redicts 在 s 模式下才会生效
@@ -66,6 +67,7 @@ def screenshot_page(
         del_cookies (bool): 是否清除所有 Cookie，默认为 False。
         proxy (dict, optional): 代理设置，默认为 None。
         verify_ssl (bool): 是否验证 SSL 证书，默认为 False。
+        hide （bool): 影藏 tab 等，这个方法是直接隐藏浏览器进程。在任务栏上也会消失。只支持 Windows 系统，并且必需已安装 pypiwin32 库
 
     Returns:
         dict: 包含以下信息的字典：
@@ -106,6 +108,13 @@ def screenshot_page(
     # 验证请求方法
     if method.upper() not in ['GET', 'POST']:
         raise ValueError("Method must be either 'GET' or 'POST'.")
+
+    # 与 headless 模式不一样，这个方法是直接隐藏浏览器进程。在任务栏上也会消失。只支持 Windows 系统，并且必需已安装 pypiwin32 库才可使用。
+    # https://drissionpage.cn/browser_control/page_operation/#-setwindowhide
+    # 浏览器隐藏后并没有关闭，下次运行程序还会接管已隐藏的浏览器
+    # 浏览器隐藏后，如果有新建标签页，会自行显示出来
+    # if hide:
+    #     tab.set.window.hide()
 
     # 清除所有 Cookie
     if del_cookies:

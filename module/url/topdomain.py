@@ -4,7 +4,7 @@
 如果后续新增，请运行当前脚本验证是否有重复项目
 """
 # 如果需要新的域名:
-SELF_DOMAIN_LIST = [{"domain": ".jdm"}]
+SELF_DOMAIN_LIST = [{"domain": ".jdm"}, {"domain": ".one"}, {"domain": ".moe"}]
 
 # 维基页面的所有顶级域名
 WIKI_TOPDOMAIN = [

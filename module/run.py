@@ -22,6 +22,7 @@ from module.proxy.verif import verify_proxy  # 验证代理格式
 from module.proxy.verif import match_bypass_domain  # 提供对输入的域名，跳过代理的域名支持
 from module.extension.add import create_proxy_extension, unzip_file # 浏览器代理插件，以及解压
 from module.extension.add import create_add_headers_extension # 浏览器添加头部插件
+from module.extension.delete import remove_matching_extension  # 卸载插件
 from module.config.init import generate_config_ini  # 初始化配置文件
 from module.config.load import load_config as load_cfg # 载入配置
 
@@ -147,6 +148,16 @@ def load_urls(args,):
         )
 
     return new_urls
+
+
+def remove_plugins(args):
+    secure_preference = os.path.join(args.user_data_path, 'Default/Secure Preferences')
+    for plugin_path in [HEADERS_EXTENSION_PATH, PROXY_EXTENSION_PATH] + args.extensions:
+        print(plugin_path)
+        try:
+            remove_matching_extension(secure_preferences_file=secure_preference, target_plugn_path=plugin_path)
+        except FileNotFoundError:
+            continue
 
 
 # 加载代理
@@ -276,6 +287,7 @@ def process_url(browser, url, args, write_result):
                                  proxy=args.proxy if not match_bypass_domain(url, args.proxy_bypass) else None,
                                  # s 模式下的证书 验证，如果为false则为关闭，否则，传递第一个指定的证书，它不支持多个证书
                                  verify_ssl=False if args.ignore_certificate_errors and not args.ssl_cert else args.ssl_cert[0],
+                                 # hide=False if not args.no_headless else True,
                                  )
     # 关闭标签页
     logging.info("访问结束, 关闭标签页...")
@@ -314,6 +326,8 @@ def run(args, browser, urls):
                 browser.close_tabs(tab_ids)
                 logging.debug("尝试退出浏览器")
                 browser.quit()
+                if os.name == 'nt':
+                    os.system(f"taskkill /PID {browser.process_id} /F")
             except KeyboardInterrupt:
                 logging.debug("再次被 Ctrl + C 终止, 尝试关闭标签页, 以及退出浏览器, 杀死关闭进程")
                 browser.close_tabs(tab_ids)
@@ -344,6 +358,10 @@ def main(args=None):
     new_urls = load_urls(args)
     if not new_urls:
         return
+
+    # 删除所有的插件
+    # 卸载上次的
+    remove_plugins(args)
 
     # 添加代理, 是 d 模式下的代理
     if args.proxy:
@@ -391,7 +409,22 @@ def main(args=None):
         # 执行多线程访问
         run(args=args, browser=browser, urls=new_urls)
     except KeyboardInterrupt:
-        browser.close_tabs(tab_ids)
-        browser.quit()
+        try:
+            browser.close_tabs(tab_ids)
+            browser.quit()
+        except KeyboardInterrupt:
+            if os.name == 'nt':
+                os.system(f"taskkill /PID {browser.process_id} /F")
+        finally:
+            remove_plugins(args)
+    finally:
+        try:
+            browser.close_tabs(tab_ids)
+            browser.quit()
+        except KeyboardInterrupt:
+            if os.name == 'nt':
+                os.system(f"taskkill /PID {browser.process_id} /F")
+        finally:
+            remove_plugins(args)
 
 
