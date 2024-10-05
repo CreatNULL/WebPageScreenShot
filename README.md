@@ -1,4 +1,4 @@
-# WebPageScreenShot
+![image](https://github.com/user-attachments/assets/fda332af-e5fd-4467-b1ae-d692f4727d80)# WebPageScreenShot
 Python实现的访问网页截图
 
 ## 这是什么
@@ -42,8 +42,13 @@ pip install DrissionPage
 ```
 
 
-
 ## 使用
+
+在次之前需要了解，这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。
+**<span style="color:red">注意:</span>**
+>     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
+>     官方文档内写着: https://drissionpage.cn/SessionPage/visit
+>     所以，我设置了如果携带这些参数的时候，指定的多个证书，只会读取第一个
 
 ### 一、基本访问
 
@@ -58,8 +63,10 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 - 无头模式运行，打开一个白色的页面，但是关掉即可，问题不大
 - 一个输出文件名为 result.html
 
+
 ##### 运行终端显示:
 ![image](https://github.com/user-attachments/assets/0df0a373-0170-4cb9-8640-14b66a7ed535)
+
 
 ##### 输出文件:
 打开后会显示网站标题和缩略图
@@ -70,12 +77,12 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 ![image](https://github.com/user-attachments/assets/9c1add3c-0b47-4452-88e8-249ac618d0ba)
 ![image](https://github.com/user-attachments/assets/04ce64b7-446c-44a4-8e7f-8cbaa967cfe3)
 
+
 #### 访问多个URL 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.com/ --url https://www.baidu.com 
 ```
 ![image](https://github.com/user-attachments/assets/5f75b66f-e731-48c0-a04b-1bcb14d46086)
-
 
 
 ### 二、使用代理
@@ -85,22 +92,30 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ```
 ![image](https://github.com/user-attachments/assets/656d0d42-1ebb-40fc-aaca-e8a801e3df7e)
 
+
 #### 加载证书可以使用参数 --ssl-cert 
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083 --ssl-cert .\cert\mitm-server.crt
 ```
 多个证书 --ssl-cert 证书1  --ssl-cert 证书2
 
+
 #### 设置代理，理论上我这个是支持账号密码的，因为我是通过插件实现的
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pwd@127.0.0.1:8083 
 ```
+
 #### 设置代理，跳过指定的域名
 可以看到我们第一次抓包，会有很多的没用的域名，可以通过参数来过滤, 抓取到的数据包就干净了很多
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083 --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com"
 ```
 ![image](https://github.com/user-attachments/assets/50a912bb-15c9-4ce9-8f29-08efe4bb9de7)
+实现方法:
+通过对于s和d模式下的，首先通过, 该函数匹配规则，输入的域名是否需要代理
+![image](https://github.com/user-attachments/assets/4312bd8f-386a-4b28-93e2-aac490a2bd15)
+不需要则设置为 None，但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载浏览器插件实现
+所以需要注意的是，如果你指定的是 d 模式下的域名，则 python 的正则可能不适用
 
 
 ### 三、请求携带参数
@@ -109,6 +124,25 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ```
 ![image](https://github.com/user-attachments/assets/9adc6adc-bd43-4fa7-be45-b96720700a53)
 
+
+### 四、携带请求json
+```
+python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json '{"page": 1, "num": 2}'
+```
+![image](https://github.com/user-attachments/assets/0cc69c29-c18b-4909-af34-6755e708dae4)
+
+
+### 五、携带请求data
+```
+python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --data "测试=1"
+
+```
+![image](https://github.com/user-attachments/assets/35d70513-ac3f-412c-b149-0362caa7f6e6)
+
+
+### 六、携带请求 file
+```
+```
 
 
 ### 四、请求添加头部
@@ -119,6 +153,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 ```
 可以看到虽然报错，但是确实请求了
 ![image](https://github.com/user-attachments/assets/5ccddaec-6df5-4a7a-8c14-f6ba89fd26ac)
+
 
 
 
