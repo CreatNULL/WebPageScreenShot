@@ -1,3 +1,5 @@
+# 测试阶段
+
 # Python实现的访问网页截图
 
 ## 这是什么
@@ -132,15 +134,16 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 实现方法:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
 &nbsp;&nbsp;&nbsp;&nbsp;但是对于 d 模式下，会加载其他的不相关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
-![image](https://github.com/user-attachments/assets/abc41e84-bd18-4ef5-82dc-0818e1db47e7)
+![image](https://github.com/user-attachments/assets/9eb110af-cbe0-44b8-b683-40f5416c0f26)
 
 
+
 <br/>
 <br/>
 <br/>
 <br/>
 
-### 三、请求携带参数
+### 三、请求携带URL参数
 ```
  python .\webPageScreenshot.py --url http://www.localhost.com --params '{\"User-Agent\": \"my-agent\"}'  --proxy http://127.0.0.1:8083
 ```
@@ -177,6 +180,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
+### 六、
 ### 六、携带请求 file
 ```
 ```
@@ -185,14 +189,18 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
+###
 ### 七、请求添加头部
 
-如果服务不支，则会返回  Document is empty 类似的错误
+如果需要多个头部，则使用多个 --headers 来指定
 ```
-python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json="666"
+python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --proxy http://127.0.0.1:8080  --json="666" --headers "User-Agent: bbbb\nw: 11111"  --headers "bb: bbbb"
 ```
-可以看到虽然报错，但是确实请求了<br/>
-![image](https://github.com/user-attachments/assets/5ccddaec-6df5-4a7a-8c14-f6ba89fd26ac)
+![image](https://github.com/user-attachments/assets/359628f4-9607-49a4-a99a-1f9ba27359e4)
+
+通过配置文件指定
+![image](https://github.com/user-attachments/assets/3d38d356-eb2d-457c-8734-e432d8b08357)
+
 
 
 
