@@ -7,6 +7,7 @@
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET
+- 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
 访问截图，输出一个html文件，截图也在里面，嘿嘿嘿
 
 ## 自问自答环节:
@@ -274,6 +275,7 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 ### 十、测试:
 ![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
 ![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
+![image](https://github.com/user-attachments/assets/b91f9cce-6cf1-4837-a89f-6e599fb5e44e)
 
 
 ## 有 bug 联系作者:
