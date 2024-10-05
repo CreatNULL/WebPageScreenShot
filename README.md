@@ -58,8 +58,14 @@ DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器�
 >     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
 >     官方文档内写着: https://drissionpage.cn/SessionPage/visit
 >     所以，我设置了如果携带这些参数的时候，指定的多个证书，只会读取第一个，这样你只能指定的格式为pem啦，哈哈
->     ![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc) 原文: https://drissionpage.cn/SessionPage/visit/#%EF%B8%8F%EF%B8%8F-post
+>     ![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc)
+>     官方文档: https://drissionpage.cn/SessionPage/visit/#%EF%B8%8F%EF%B8%8F-post
 
+为啥我关闭了这个参数，因为，会在当前文件夹下创建了 User Data里面的一堆东西，乱死了，所以我手动指定，默认为当前文件夹下的 User Data<br/>
+官方文档: https://drissionpage.cn/tutorials/functions/new_browser/#%EF%B8%8F%EF%B8%8F-auto_port%E6%96%B9%E6%B3%95<br/>
+![image](https://github.com/user-attachments/assets/d67fadf9-d6c0-49ff-b182-8256d50699e5)
+
+![image](https://github.com/user-attachments/assets/da8e943a-6722-48e0-ab5c-d105308e4e00)
 
 <br/>
 <br/>
