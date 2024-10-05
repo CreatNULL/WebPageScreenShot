@@ -70,7 +70,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 ##### 程序运行后：
 - 会创建两个目录: `WebPageScreenshotExtensions` 和 `WebPageScreenshotLog` ,分别保存设置代理时创建的插件，和程序运行的日志 (为什么文件名这么长? 我不是有病哦，怕有和其它的冲突)
 - 无头模式运行，打开一个白色的页面，但是关掉即可，问题不大
-- 一个输出文件名为 result.html
+- 一个输出文件名为 result.html ((●'◡'●)这里我懒啦)
 <br/>
 <br/>
 
@@ -131,7 +131,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 实现方法:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
-&nbsp;&nbsp;&nbsp;&nbsp;但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;但是对于 d 模式下，会加载其他的不相关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
 ![image](https://github.com/user-attachments/assets/688735e3-0d56-49d0-8bf4-ae4d1f84f1f6)
 
 <br/>
