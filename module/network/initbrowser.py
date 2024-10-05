@@ -126,7 +126,7 @@ def init_browser(config_path: str = 'dp_configs.ini',
         logging.info("配置文件路径: %s", config_path)
         co = ChromiumOptions(ini_path=config_path, read_file=True).new_env()
     else:
-        logging.info("不读取配置文件")
+        logging.info("不读取配置文件 (第三方库的) 暂时没用忽略即可")
         co = ChromiumOptions(read_file=False).new_env()
 
     # 此方法用于清空已设置的arguments参数
@@ -140,6 +140,14 @@ def init_browser(config_path: str = 'dp_configs.ini',
             logging.info(f"添加配置 {arg}")
             co.set_argument(arg)
 
+    # 启用无头模式
+    if headless:
+        logging.info("使用无头模式")
+        # co.headless(on_off=True)
+        co.set_argument('window-size=1920x3000')  # 无头模式下窗口大小
+        co.remove_argument('--start-maximized')
+        co.set_argument('--headless=new')
+
     # 固定配置
     logging.info("设置新版本的无头模式，以此支持无头模式下的插件使用,"
                  "禁用浏览器正在被自动化程序控制的提示, 不要阻止过时的插件, "
@@ -148,7 +156,7 @@ def init_browser(config_path: str = 'dp_configs.ini',
                  " 允许运行不安全的内容, "
                  "禁止xss防护, "
                  "禁用缓存")
-    co.set_argument('--headless=new')   # 无头模式, linux下如果系统不支持可视化不加这条会启动失败
+
     co.set_argument('--disable-infobars')   # 禁用浏览器正在被自动化程序控制的提示
     co.set_argument('--allow-outdated-plugins')   # 不要阻止过时的插件
     co.set_argument("--disable-blink-features=AutomationControlled")   # 规避滑块检测
@@ -222,20 +230,16 @@ def init_browser(config_path: str = 'dp_configs.ini',
         cache_path=None,  # 缓存路径
     )
 
-    # 启用无头模式
-    if headless:
-        logging.info("使用无头模式")
-        co.headless()
+
+    # 启动时最大化
+    # if start_maximized:
+        # logging.info("启动时最大化")
+        # co.set_argument('--start-maximized')
 
     # 无沙盒模式
     if no_sandbox:
         logging.info("禁用沙盒")
         co.set_argument('--no-sandbox')
-
-    # 启动时最大化
-    if start_maximized:
-        logging.info("启动时最大化")
-        co.set_argument('--start-maximized')
 
     # 匿名模式
     if incognito:

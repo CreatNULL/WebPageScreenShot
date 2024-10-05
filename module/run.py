@@ -14,6 +14,7 @@ import logging  # 日志记录
 import configparser   # 配置文件读取
 from DrissionPage import Chromium   # 实现截图的第三方库
 from concurrent.futures import ThreadPoolExecutor, as_completed  # 多线程
+from requests.exceptions import ConnectionError # 浏览器连接错误
 from module.url.urlmodify import ModifyURL  # URL处理类
 from module.network.initbrowser import init_browser  # 初始化配置对象， 用于创建
 from module.network.screenshot import screenshot_page  # 实现截图的模块
@@ -42,6 +43,9 @@ if not os.path.exists(PROXY_EXTENSION_PATH):
 if not os.path.exists(HEADERS_EXTENSION_PATH):
     os.makedirs(HEADERS_EXTENSION_PATH, exist_ok=True)
 LOG_LEVEL = logging.INFO  # 控制日志输出级别
+
+OUTPUT_REQUEST_ERROR_URL = False  # 记录访问成功 URL
+OUTPUT_REQUEST_SUCCESS_URL = False  # 记录访问失败 URL
 
 # 创建日志输出目录（如果不存在）
 log_dir = 'WebPageScreenshotLogs'
@@ -153,7 +157,6 @@ def load_urls(args,):
 def remove_plugins(args):
     secure_preference = os.path.join(args.user_data_path, 'Default/Secure Preferences')
     for plugin_path in [HEADERS_EXTENSION_PATH, PROXY_EXTENSION_PATH] + args.extensions:
-        print(plugin_path)
         try:
             remove_matching_extension(secure_preferences_file=secure_preference, target_plugn_path=plugin_path)
         except FileNotFoundError:
@@ -161,7 +164,7 @@ def remove_plugins(args):
 
 
 # 加载代理
-def load_porxy(args):
+def load_proxy(args):
     # 设置代理，创建代理插件
     logging.info(f"使用代理")
     # 返回 requests 需要的格式，和 原始的 http://user:pwd@127.0.0.1:8080 格式
@@ -314,12 +317,19 @@ def run(args, browser, urls):
             futures = {executor.submit(process_url, browser, url, args, write_result): url for url in urls}
             for future in as_completed(futures):
                 url = futures[future]
+                # 获取结果
                 try:
                     future.result()  # 获取结果以捕获异常
+                    # 结束输出访问成功
+                    if OUTPUT_REQUEST_SUCCESS_URL:
+                        write_result.write_success_url(url=url)
                 except Exception as e:
-                    print(f"[error] 处理 URL {url} 时出错: {e}")
+                    logging.error(f"处理 URL {url} 时出错: {e}")
+                    #  输出访问失败的
+                    if OUTPUT_REQUEST_ERROR_URL:
+                        write_result.write_error_url(url=url)
         except KeyboardInterrupt:
-            logging.info("用户手动退出")
+            logging.warning("用户手动退出")
             # 基本可以关闭了
             try:
                 logging.debug("尝试关闭标签页")
@@ -341,9 +351,6 @@ def run(args, browser, urls):
     write_result.write_html_foot()
     # 正常退出的
     browser.close_tabs(tab_ids)
-    browser.quit()
-    if os.name == 'nt':
-        os.system(f"taskkill /PID {browser.process_id} /F")
 
 
 # 程序主入口
@@ -365,7 +372,7 @@ def main(args=None):
 
     # 添加代理, 是 d 模式下的代理
     if args.proxy:
-        args = load_porxy(args)
+        args = load_proxy(args)
     else:
         args.proxy = None
 
@@ -404,26 +411,16 @@ def main(args=None):
     # 创建浏览器
     browser = load_browser(args=args)
 
-    # 呜呜怕了怕有僵尸进程呜呜
     try:
         # 执行多线程访问
         run(args=args, browser=browser, urls=new_urls)
-    except KeyboardInterrupt:
-        try:
-            browser.close_tabs(tab_ids)
-            browser.quit()
-        except KeyboardInterrupt:
-            if os.name == 'nt':
-                os.system(f"taskkill /PID {browser.process_id} /F")
-        finally:
-            remove_plugins(args)
     finally:
+        # 尝试退出
         try:
             browser.close_tabs(tab_ids)
             browser.quit()
-        except KeyboardInterrupt:
-            if os.name == 'nt':
-                os.system(f"taskkill /PID {browser.process_id} /F")
+        except (ConnectionError, FileNotFoundError, KeyboardInterrupt):  # 上方如果成功退出，浏览器无法连接
+            pass
         finally:
             remove_plugins(args)
 

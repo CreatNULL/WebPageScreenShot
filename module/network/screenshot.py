@@ -137,6 +137,10 @@ def screenshot_page(
     logging.debug(f"设置请求 -> {url}, 请求头部: {headers}, 参数: {params}, cookie: {cookies}, json: {json}, 数据: {data}, 文件: {files}, 允许重定向: {allow_redirects}, 代理: {proxy}, 验证证书: {verify_ssl}")
     # 这里需要排除重定向，否则基本永远走这下面的逻辑
     # 这里 如果仅仅是 headers 下 我使用 谷歌插件来实现吧
+
+    status_code = None
+    response_ok = False
+
     if params or data or files or json or cookies:
         tab.change_mode(mode='s', go=False, copy_cookies=True)
         if tab.mode != 's':
@@ -174,14 +178,24 @@ def screenshot_page(
                                verify=verify_ssl,
                                headers=headers
                                )
+        # session 模式下才有
+        status_code = response.status_code
     else:
-        # 根据请求模式执行请求
-        if method.upper() == 'POST':
-            response = tab.post(url=url,
-                                show_errmsg=True,)
-        else:  # 默认是 GET
-            response = tab.get(url=url,
-                               show_errmsg=True,)
+        try:
+            # 根据请求模式执行请求
+            if method.upper() == 'POST':
+                response_ok = tab.post(url=url,
+                                    show_errmsg=True,)
+            else:  # 默认是 GET
+                response_ok = tab.get(url=url,
+                                   show_errmsg=True,)
+        except Exception as e:
+            response_ok = False
+            if '状态码' in str(e):
+                status_code = str(e).split("状态码： ")[1]
+            else:
+                raise
+
     # ----------------- 截图 -----------------------
     try:
         base64_str = tab.get_screenshot(as_base64=True, full_page=True)
@@ -192,9 +206,8 @@ def screenshot_page(
     tab_id = tab.tab_id  # 当前标签页的 ID
     title = tab.title   # 页面标题
     tab_url = tab.url   # 页面 URL
-    status_code = str(response.status_code) if type(response) is not bool else '' # 状态码
     user_agent = tab.user_agent   # User-Agent 信息
-
+    status_code = status_code if status_code else '200' if response_ok else status_code
     # 超时和重试设置
     timeouts = tab.timeouts  # 超时设置
     retry_times = tab.retry_times  # 网络连接失败时的重试次数
@@ -206,6 +219,7 @@ def screenshot_page(
         response_html = tab.html  # 页面 HTML 文本
     except Exception:
         response_html = None
+
     try:
         response_json = tab.json  # 请求内容解析为 JSON
     except DrissionPage.errors.ElementNotFoundError:

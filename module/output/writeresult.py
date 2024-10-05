@@ -72,8 +72,15 @@ class WriteResult:
                     content.style.display = content.style.display === 'block' ? 'none' : 'block';
                 }
             </script>
+            <script>
+                let urlCount = 0;  // URL 计数变量
+                function updateUrlCount() {{
+                    document.getElementById('urlCount').innerText = '当前 URL 数量: ' + urlCount;
+                }}
+            </script>
         </head>
         <body>
+        <h1 id="urlCount">当前 URL 数量: </h1>
         """
         with open(self.__result_output, 'w', encoding='utf-8') as file:
             file.write(html_head_report)
@@ -138,6 +145,10 @@ class WriteResult:
                 const modal = document.getElementById('modal');
                 modal.style.display = 'none';
             }}
+        </script>
+        <script>
+            urlCount++;  // 增加 URL 计数
+            updateUrlCount();  // 更新 URL 数量显示
         </script>
         """
         with self.__html_lock:
