@@ -206,7 +206,6 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
-###
 ### 七、请求添加头部
 
 如果需要多个头部，则使用多个 --headers 来指定
@@ -215,7 +214,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 ```
 ![image](https://github.com/user-attachments/assets/359628f4-9607-49a4-a99a-1f9ba27359e4)
 
-通过配置文件指定
+通过配置文件指定<br/>
 ![image](https://github.com/user-attachments/assets/df16e97e-b679-459d-855a-0e64a2acec49)
 ![image](https://github.com/user-attachments/assets/74816905-390b-4299-8142-3c082733897e)
 
