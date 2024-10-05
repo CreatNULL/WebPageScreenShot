@@ -15,6 +15,10 @@
 - 默认情况下不输出 访问失败的 url 的文件，需要到run.py 下开启
 ![image](https://github.com/user-attachments/assets/28652bb4-4125-402a-abdf-a6e27499ebc4)<br/>
 
+## 虚拟机Linux下，在Kali测试
+- CPU最高49%,最低 8%
+- 内存最高 3.09 GB, 最低 2.06GB
+
 
 
 ## 由来
