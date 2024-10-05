@@ -221,4 +221,14 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 
 
 
+### 八、添加cookie
+```
+python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/get  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com"  --proxy http://127.0.0.1:8080   --json '{\"A\": 1}' --cookies '{\"a\": \"b\"}'
+```
+![image](https://github.com/user-attachments/assets/f9d29d2c-e166-4228-83a1-8aa4db9142bc)
+
+##### 通过配置文件
+![image](https://github.com/user-attachments/assets/855a0a08-01a8-435a-8da0-70a5a66fd1c8)
+
+![image](https://github.com/user-attachments/assets/c6431cab-5905-4c25-8d96-f59f926d6da7)
 
