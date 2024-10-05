@@ -123,9 +123,9 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 ```
 ![image](https://github.com/user-attachments/assets/50a912bb-15c9-4ce9-8f29-08efe4bb9de7)
 <br/>
-实现方法:
-  通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
-  但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**
+实现方法:<br/>
+&nbsp;&nbsp;&nbps;&nbps;通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
+&nbsp;&nbsp;&nbps;&nbps;但是对于 d 模式下，会加载其他的不想关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**
   ![image](https://github.com/user-attachments/assets/4312bd8f-386a-4b28-93e2-aac490a2bd15)
 <br/>
 <br/>
