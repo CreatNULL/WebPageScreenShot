@@ -132,7 +132,8 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 实现方法:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;通过, 下方图片的函数匹配规则，输入的域名是否需要代理，不需要则设置为 None。
 &nbsp;&nbsp;&nbsp;&nbsp;但是对于 d 模式下，会加载其他的不相关的 url，所以通过加载**浏览器插件实现**，所以需要注意的是，如果你指定的是 d 模式下的域名，**则 Python 的正则可能不适用插件**<br/>
-![image](https://github.com/user-attachments/assets/688735e3-0d56-49d0-8bf4-ae4d1f84f1f6)
+![image](https://github.com/user-attachments/assets/abc41e84-bd18-4ef5-82dc-0818e1db47e7)
+
 
 <br/>
 <br/>
@@ -154,6 +155,12 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json '{"page": 1, "num": 2}'
 ```
 ![image](https://github.com/user-attachments/assets/0cc69c29-c18b-4909-af34-6755e708dae4)
+对于测试json个人建议使用配置文件更加的方便<br/>
+```
+python .\webPageScreenshot.py --config .\config.ini
+```
+![image](https://github.com/user-attachments/assets/aafba3a1-9de2-49fe-90a4-0d8491194d75) <br/>
+![image](https://github.com/user-attachments/assets/a159e894-61e0-4620-a52a-77828e861068) <br/>
 <br/>
 <br/>
 <br/>
