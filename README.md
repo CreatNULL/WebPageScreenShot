@@ -245,9 +245,10 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 通过配置文件指定<br/>
 ![image](https://github.com/user-attachments/assets/df16e97e-b679-459d-855a-0e64a2acec49)
 ![image](https://github.com/user-attachments/assets/74816905-390b-4299-8142-3c082733897e)
-
-
-
+<br/>
+<br/>
+<br/>
+<br/>
 
 ### 八、添加cookie
 ```
@@ -259,6 +260,16 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 ![image](https://github.com/user-attachments/assets/855a0a08-01a8-435a-8da0-70a5a66fd1c8)
 
 ![image](https://github.com/user-attachments/assets/c6431cab-5905-4c25-8d96-f59f926d6da7)
+<br/>
+<br/>
+<br/>
+<br/>
+### 报错:
+![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
+解决:<br/>
+在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
+原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿
+![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)
 
 
 ## 有 bug 联系作者:
