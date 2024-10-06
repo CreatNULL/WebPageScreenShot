@@ -5,6 +5,8 @@
 ## 等待解决的问题
 - 超时参数仅对 d 模式下生效问题
 - ERROR - 处理 URL http://www.localhost.com:5000 时出错: 此功能需显式设置下载路径（使用set.download_path()方法、配置对象或ini文件均可）。 对于参数的处理问题
+- 纠正 --help 现实的帮助信息错误
+- 统一文件夹名称为 ScreenShot_ 开头,下载: ScreenShot_Download 日志: ScreenShot_Logs 插件: ScreenShot_Extensions
   
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
