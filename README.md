@@ -23,9 +23,9 @@
 ```
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
-- 要手动指定 POST，不然默认就是 GET
-- 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
-- Ctrl + C 可以结束，理论上，不会有残留的进程，除非强行关闭。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，Windows taskkill /IM chrome.exe /F,嘿嘿
+- 要手动指定 POST，不然默认就是 GET，不管是否使用了 --data   --json --files
+- 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。[DrissionPage第三方库官方文档](https://drissionpage.cn/browser_control/connect_browser)
+- Ctrl + C 可以结束进程，理论上，不会有残留的进程，除非强行关闭。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，或者尝试使用参数 --force-stop-browser 或者 Windows下使用 taskkill /IM chrome.exe /F,嘿嘿
 - 建议 Linux 上运行（4GB内存）
 - 结果输出
   - 输出文件
