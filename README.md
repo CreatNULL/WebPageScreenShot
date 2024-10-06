@@ -353,7 +353,7 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
 平均每分钟访问URL数量:<br/>
 ![image](https://github.com/user-attachments/assets/fbe0ed5a-ee44-4b26-ba7f-a7b3a8e9b0a3)<br/>
 
-### 十一、完整参数
+### 十一、配置文件参数
 ```
         'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
         'file': '',  # 读取的存储 url列表的 文件 ./url.txt
