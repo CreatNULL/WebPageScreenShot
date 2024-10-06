@@ -314,14 +314,23 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 ![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
 解决:<br/>
 在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
-原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿
-![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)
+原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿<br/>
+![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)<br/>
+<br/>
+<br/>
 
 ### 十、测试:
+fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程 5，超时时间设置 (6, 8, 8), 09:27:36 开始 - 09:53:01 结束, 测试期间内存基本在 2 左右 有时会升到 3 ，CPU基本较低，偶尔飙升到 98%，很快恢复。
 ![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
 ![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
-![image](https://github.com/user-attachments/assets/b91f9cce-6cf1-4837-a89f-6e599fb5e44e)
+![image](https://github.com/user-attachments/assets/b91f9cce-6cf1-4837-a89f-6e599fb5e44e)<br/>
+开始时间:<br/>
+![image](https://github.com/user-attachments/assets/e8a61b7d-2a63-4c86-9678-ac8eab28741c)<br/>
 
+结束时间:<br/>
+![image](https://github.com/user-attachments/assets/d28e35d3-65a7-4d1c-8785-4574c9a8cdf8)<br/>
+平均每分钟访问URL数量:<br/>
+![image](https://github.com/user-attachments/assets/fbe0ed5a-ee44-4b26-ba7f-a7b3a8e9b0a3)<br/>
 
 
 ## 有 bug 联系作者:
