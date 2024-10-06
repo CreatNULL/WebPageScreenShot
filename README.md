@@ -24,7 +24,8 @@
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET，不管是否使用了 --data   --json --files
-- 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。[DrissionPage第三方库官方文档](https://drissionpage.cn/browser_control/connect_browser)
+- 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。
+  - 参考 DrissionPage 第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
 - Ctrl + C 可以结束进程，理论上，不会有残留的进程，除非强行关闭。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，或者尝试使用参数 --force-stop-browser 或者 Windows下使用 taskkill /IM chrome.exe /F,嘿嘿
 - 建议 Linux 上运行（4GB内存）
 - 结果输出
@@ -135,8 +136,8 @@ DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器�
 >     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
 >     官方文档内写着: https://drissionpage.cn/SessionPage/visit
 >     所以，我设置了如果携带这些参数的时候，指定的多个证书，只会读取第一个，这样你只能指定的格式为pem啦，哈哈
->     ![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc)
->     官方文档: https://drissionpage.cn/SessionPage/visit/#%EF%B8%8F%EF%B8%8F-post
+![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc)
+>     参考官方文档: https://drissionpage.cn/SessionPage/visit/#%EF%B8%8F%EF%B8%8F-post
 
 为啥我关闭了这个参数，因为，会在当前文件夹下创建了 User Data里面的一堆东西，乱死了，所以我手动指定，默认为当前文件夹下的 User Data<br/>
 官方文档: https://drissionpage.cn/tutorials/functions/new_browser/#%EF%B8%8F%EF%B8%8F-auto_port%E6%96%B9%E6%B3%95<br/>
