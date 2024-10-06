@@ -20,17 +20,24 @@
 <br/>
 <br/>
 
+```
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET
 - 默认情况下，程序使用 9222 端口，浏览器可执行文件路径为'chrome'。第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
-- Ctrl + C 可以结束，理论上，不会有残留的进程，除非强行关闭，因为我用屎山代码不断的尝试退出，所以建议 Linux 上运行（4GB内存）。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，Windows taskkill /IM chrome.exe /F,嘿嘿
-- 输出一个html文件，截图也在里面, 无其他生成（除了运行的日志文件夹、本身开启浏览器创建的用户配置文件、如果使用代理则会生成一个插件目录、如果使用配置文件 --config , 首次指定会创建你指定的名称的，默认的配置文件）
+- Ctrl + C 可以结束，理论上，不会有残留的进程，除非强行关闭。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，Windows taskkill /IM chrome.exe /F,嘿嘿
+- 建议 Linux 上运行（4GB内存）
+- 结果输出
+  - 输出文件
+     (1). 一个访问成功的文件列表 success_url.txt ，提供给下一步访问等;
+     (2). 访问失败文件 error_url.txt ，记录访问失败，如果是应为超时的原因可以重设超时时间，再次运行。
+     (3). 运行日志，记录运行流程，方便出问题追踪。
+     (4). 一个指定代理时或指定 headers 时创建的代理插件目录
+     (5). 一个 result.html 记录访问成功的图片和网站，
+     (6)、如果使用配置文件 --config , 首次指定会创建你指定的名称的，默认的配置文件）
 - 可以通过指定读取配置文件，创建和使用配置文件是同一个命令 --config 配置文件名称
-- 默认情况下不输出 访问失败的 url 的文件，需要到run.py 下开启
-![image](https://github.com/user-attachments/assets/28652bb4-4125-402a-abdf-a6e27499ebc4)<br/>
 
-
+```
 
 ## 二、由来
   以前刚开始的时候，面对 findersomething 插件提取的url，已经fofa 批量查找的 url 想着要是有个工具能帮我访问截图就好啦。
