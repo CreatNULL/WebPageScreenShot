@@ -120,4 +120,4 @@ def init_arguments():
 
 if __name__ == '__main__':
     print(banner)
-    main(args=init_arguments())
+    print("嘿嘿嘿只是个预览页面，正真的请使用压缩包解压缩后的文件")
