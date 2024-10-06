@@ -3,11 +3,19 @@
 
 
 ## 等待解决的问题
-- 超时参数仅对 d 模式下生效问题
-- ERROR - 处理 URL http://www.localhost.com:5000 时出错: 此功能需显式设置下载路径（使用set.download_path()方法、配置对象或ini文件均可）。 对于参数的处理问题
-- 纠正 --help 现实的帮助信息错误
-- 纠正参数 --download-path ，现在，它可以设置，但是实际上它没有任何意义，预留参数
-- 统一文件夹名称为 ScreenShot_ 开头,下载: ScreenShot_Download（未来可能用上） 日志: ScreenShot_Logs 插件: ScreenShot_Extensions
+(1)、超时参数仅对 s 模式 和 d 模式下生效问题
+解决方案:<br/>
+    经过查阅它的源代码，发现，我不需要指定，只需要指定好 d 模式下的即可，它会依据模式自动提取 d 模式下的第二个页面加载超时时间作为timeout，文件路径: venv/Lib/site-packages/DrissionPage/_pages/mix_tab.py<br/>
+![image](https://github.com/user-attachments/assets/6627a938-03df-403f-bac7-4118e961726d)<br/>
+<br/>
+
+(2)、ERROR - 处理 URL http://www.localhost.com:5000 时出错: 此功能需显式设置下载路径（使用set.download_path()方法、配置对象或ini文件均可）。 对于参数的处理问题
+解决方案:<br/>
+    查阅官方文档，似乎和我预想的不一样，我以为是对于访问后自动接收，保存到文件夹中，但是实际似乎需要主动去下载。
+<br/>
+(3)、纠正 --help 现实的帮助信息错误
+  - 纠正参数 --download-path ，现在，它可以设置，但是实际上它没有任何意义，预留参数
+  - 统一文件夹名称为 ScreenShot_ 开头,下载: ScreenShot_Download（未来可能用上） 日志: ScreenShot_Logs 插件: ScreenShot_Extensions
   
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
