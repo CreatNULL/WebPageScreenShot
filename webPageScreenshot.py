@@ -41,45 +41,43 @@ def init_arguments():
                         help='要打开的网址列表文件，一行一个')
     parser.add_argument('--method', type=str, choices=['GET', 'POST'], default='GET',
                         help="请求的方式，支持 'GET' 和 'POST'，默认为 'GET'。")
-    parser.add_argument('--output-path', type=str, default='.',
-                        help="输出文件")
-    parser.add_argument('--threads', type=int, default=5,
-                        help='指定使用的线程数，默认为 5。')
     parser.add_argument('--params', type=str, default=None,
                         help="URL 请求参数，以 JSON 字符串格式提供，例如: '{\"key\": \"value\"}'。")
-    parser.add_argument('--headers', action='append', default=[],
-                        help="请求头，以 JSON 字符串格式提供，例如: User-Agent: Demo-User-Agent。")
-    parser.add_argument('--headers-bypass', action='append', default=[],
-                        help="不设置请求头主机列表")
     parser.add_argument('--data', type=str, default=None,
                         help="要携带的数据，可以是字符串或 JSON 格式。")
     parser.add_argument('--json', type=str, default=None,
                         help="要发送的 JSON 数据，以 JSON 字符串格式提供。")
     parser.add_argument('--files', type=str, default=None,
                         help="要上传的文件，以 JSON 字符串格式提供，例如: '{\"上传时候的file文件名称\": \"上传的文件路径\"}'。")
-    parser.add_argument('--proxy', type=str, default=None,
-                        help='设置代理，例如: "http://127.0.0.1:8080"')
-    parser.add_argument('--proxy-active', action='store_true',
-                        help='是否关闭代理存活验证, 默认关闭', )
-    parser.add_argument('--proxy-bypass', action='append', default=[],
-                        help='不代理的主机列表')
-    parser.add_argument('--ssl-cert', action='append', default=[],
-                        help='需要加载的ssl证书')
-    parser.add_argument('--allow-redirects', action='store_true', default=False,
-                        help="是否允许重定向，默认为 True。")
+    parser.add_argument('--headers', action='append', default=[],
+                        help="请求头，以字符串格式提供，例如: User-Agent: Demo-User-Agent。")
     parser.add_argument('--cookies', type=str, default=None,
                         help="要添加的 Cookie，以 JSON 字符串格式提供。")
     parser.add_argument('--del-cookies', action='store_true',
                         help="是否清除所有 Cookie，默认为 False。")
+    # 超时
+    parser.add_argument('--timeout', type=float, nargs=3, default=(6, 8, 8),
+                        help="对于 d 模式下， 超时时间设置，默认为 (6, 8, 8)。"
+                             "第一个值为默认超时时间，第二个值为页面加载超时时间，"
+                             "第三个值为 JavaScript 运行超时时间，单位为秒。"
+                             "对于 s 模式下，只读取第一个，"
+                             "连接超时时间")
     parser.add_argument('--retry-times', type=int, default=0,
                         help="页面加载失败重试次数，默认为 0。")
     parser.add_argument('--retry-interval', type=float, default=2.0,
                         help="页面加载失败重试间隔，默认为 2 秒。")
-    #  timeout 参数为包含三个浮点数
-    parser.add_argument('--timeout', type=float, nargs=3, default=(6, 8, 8),
-                        help="超时时间设置，默认为 (6, 8, 8)。原本是 10，30，30"
-                             "第一个值为默认超时时间，第二个值为页面加载超时时间，"
-                             "第三个值为 JavaScript 运行超时时间，单位为秒。")
+    parser.add_argument('--allow-redirects', action='store_true', default=False,
+                        help="是否允许重定向，默认为 True。")
+    parser.add_argument('--ssl-cert', action='append', default=[],
+                        help='需要加载的ssl证书')
+    # 代理
+    parser.add_argument('--proxy', type=str, default=None,
+                            help='设置代理，例如: "http://127.0.0.1:8080"')
+    parser.add_argument('--proxy-active', action='store_true',
+                        help='是否关闭代理存活验证, 默认关闭')
+    parser.add_argument('--proxy-bypass', action='append', default=[],
+                        help='不代理的主机列表')
+    # 浏览器配置
     parser.add_argument('--browser-path', type=str, default=None,
                         help='浏览器可执行文件的路径，默认为 None')
     parser.add_argument('--local-port', type=str, default=None,
@@ -109,9 +107,13 @@ def init_arguments():
     parser.add_argument('--remove-arguments', type=str, action='append', default=[],
                         help='要移除的启动参数列表 (谷歌浏览器的)')
     parser.add_argument('--clear-arguments', type=bool, default=False,
-                        help='是否清空已设置的参数，基本没用, 创建配置类的后，清空已有的配置，使用指定的配置而已，而不是清空配置文件中的配置, 默认为 False')
+                        help='是否清空已设置的参数，默认为 False')
     parser.add_argument('--config', type=str, default='',
                         help='配置文件')
+    # 截屏
+    parser.add_argument('--full-page', action='store_true', default=False,
+                        help='完整截屏，即下拉滚动截屏，默认 False')
+
     # 预留 - 这个第三方库的配置文件，没弄明白，反正怎么弄配置文件都不生效
     # parser.add_argument('--config-path', type=str, default='dp_configs.ini',
     #                     help='配置文件保存路径，默认是 dp_configs.ini')
