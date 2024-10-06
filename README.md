@@ -54,6 +54,8 @@ https://drissionpage.cn/browser_control/ele_operation/#-run_js<br/>
 
 
 ### 四、更新
+#### 更改日期: 2024年10月7日-添加新的参数，用于让输出更干净：（解决版本:2024年10月7日_WebPageScreenShot.zip）
+
 #### 更改日期: 2024年10月6日-发现问题：(解决版本: 2024年10月6日_3_WebPageScreenShot.zip)
 (1)、超时参数仅对 s 模式 和 d 模式下生效问题<br/>
 解决方案:<br/>
