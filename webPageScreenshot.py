@@ -12,7 +12,7 @@ Version: 1.0.0
 """
 from module.run import main
 import argparse
-
+from DrissionPage import SessionPage, ChromiumPage
 banner = r"""
  __        __         _       ____                           ____                                        ____    _               _   
  \ \      / /   ___  | |__   |  _ \    __ _    __ _    ___  / ___|    ___   _ __    ___    ___   _ __   / ___|  | |__     ___   | |_ 
@@ -56,8 +56,8 @@ def init_arguments():
     parser.add_argument('--del-cookies', action='store_true',
                         help="是否清除所有 Cookie，默认为 False。")
     # 超时
-    parser.add_argument('--timeout', type=float, nargs=3, default=(6, 8, 8),
-                        help="对于 d 模式下， 超时时间设置，默认为 (6, 8, 8)。"
+    parser.add_argument('--timeout', type=lambda s: tuple(map(int, s.split(','))), default=tuple([6, 8, 8]),
+                        help="对于 d 模式下， 超时时间设置，默认为 [6,8,8]。"
                              "第一个值为默认超时时间，第二个值为页面加载超时时间，"
                              "第三个值为 JavaScript 运行超时时间，单位为秒。"
                              "对于 s 模式下，只读取第一个，"
@@ -110,10 +110,13 @@ def init_arguments():
                         help='是否清空已设置的参数，默认为 False')
     parser.add_argument('--config', type=str, default='',
                         help='配置文件')
+    # 其他
     # 截屏
     parser.add_argument('--full-page', action='store_true', default=False,
                         help='完整截屏，即下拉滚动截屏，默认 False')
-
+    parser.add_argument('--output-path', type=str, default='.',
+                        help='html 结果文件输出路径')
+    parser.add_argument("--threads",  type=int, default=5,)
     # 预留 - 这个第三方库的配置文件，没弄明白，反正怎么弄配置文件都不生效
     # parser.add_argument('--config-path', type=str, default='dp_configs.ini',
     #                     help='配置文件保存路径，默认是 dp_configs.ini')
@@ -122,4 +125,4 @@ def init_arguments():
 
 if __name__ == '__main__':
     print(banner)
-    print("嘿嘿嘿只是个预览页面，正真的请使用压缩包解压缩后的文件")
+    main(args=init_arguments())
