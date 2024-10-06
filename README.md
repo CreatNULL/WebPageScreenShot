@@ -353,7 +353,48 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
 平均每分钟访问URL数量:<br/>
 ![image](https://github.com/user-attachments/assets/fbe0ed5a-ee44-4b26-ba7f-a7b3a8e9b0a3)<br/>
 
-
+### 十一、完整参数
+```
+        'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
+        'file': '',  # 读取的存储 url列表的 文件 ./url.txt
+        'method': 'GET', # 请求模式, 需要手动指定请求模式，否则 GET如果指定了data，GET也会提交data，其他同理
+        'params': '',  # url 请求参数， 就是转为 /index?参数key=参数value
+        'data': str(None),   # 携带的数据
+        'json': str(None),  # 要发送的 JSON 数据，会自动设置 Content-Type 为'application/json'
+        'files': str(None),  # 上传的文件，可以是一个字典，其中键是文件名，值是文件对象或文件路径
+        'headers': [],  # 请求头 ['User-Agent: AAAA', ]
+        'headers_bypass': [],   # 跳过的主机列表 ['*localhost']
+        'cookies': str(None),   # {}   # 添加请求的 cookie，json格式
+        'del_cookies': 'False', # 访问前删除所有 cookie
+        'timeout': '6, 8, 8',   # 页面超时设置
+        'retry_times': '0',     # 重试次数
+        'retry_interval': '2.0',    # 重试间隔
+        'allow_redirects': 'True',  # 允许重定向
+        'ssl_cert': [],  # 证书
+        'proxy': str(None),   # 代理 支持账号密码
+        'proxy_active': str(None),  # 代理可用性验证
+        'proxy_bypass': [],   # 跳过代理的主机
+        'browser_path': '',     # 指定使用的浏览器路径
+        'local_port': '',   # 指定浏览器的端口
+        'auto_port': 'False',  # 自动寻找端口
+        'download_path': '',    # 程序下载路径
+        'user_data_path': './User Data',    # 用户数据目录
+        'del_user_data': 'False',   # 退出浏览器后，删除用户目录
+        'force_stop_browser': 'False',  # 退出浏览器时，强制退出
+        'no_sandbox': 'True',   # 不启用沙盒模式
+        'no_headless': 'False',     # 关闭 无头模式
+        'incognito': 'False',   # 启用无痕浏览
+        'ignore_certificate_errors': 'True',    # 忽略 SSL 证书错误
+        'start_maximized': 'True',  # 启动时窗口最大化
+        'extensions': [],   # 浏览器扩展插件
+        'use_system_user_path': 'False',    # 是否使用安装浏览器的系统用户目录
+        'set_arguments': [],    # 设置其他 浏览器的参数
+        'remove_arguments': [],  # 删除指定的浏览器参数
+        'clear_arguments': 'False',     # 启动前清楚所有浏览器配置
+        'full_page': 'False',   # 整页滚动截屏
+        'threads': '5', # 每次打开多少的个标签页，也就是多少线程去执行
+        'output_path': '.'  # html 输出文件的路径
+```
 ## 有 bug 联系作者:
 备注： GitHub
 ![13f909da0b79b8341ff15a5ce5c194a](https://github.com/user-attachments/assets/c99d053d-7d1d-4353-9e9a-a11d1c14d897)
