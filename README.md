@@ -1,4 +1,3 @@
-# 目前访问前 280 个 URL 可以在 4核4G下成功运行，下一步改进代码，实现性能提升， Windows下我 32G的内存下观测，跑到后面占用我 5G 这怎么行
 
 # Python实现的访问网页截图
 
@@ -17,10 +16,6 @@
 - 默认情况下不输出 访问失败的 url 的文件，需要到run.py 下开启
 ![image](https://github.com/user-attachments/assets/28652bb4-4125-402a-abdf-a6e27499ebc4)<br/>
 
-## 虚拟机Linux下，在Kali测试
-- CPU最高49%,最低 8%
-- 内存最高 3.45 GB, 最低 2.06GB
-
 
 
 ## 由来
@@ -32,6 +27,20 @@
 ## 缺点
   - 建议 Linux 下运行，无论是结束进程和无头模式都很舒服，Windows 运行的时候会出现一个白色的背景，全屏最大，明明无头模式，结束进程还得等他慢慢来。不介意的可以，嘿嘿，或者扔到虚拟机里，桀桀桀
 
+
+### 更新
+- 首次提交日期: 2024年10月5日 - 发现性能题，访问到 200 - 300 个url后 CPU和内存瓶颈，猜测是访问过多的url后缓存爆照。
+- 更改日期: 2024年10月6日，改进访问到 200多个 URL后CPU和内存飙升问题
+- 解决方案:
+  - 指定阈值，将输入的URL，划分为块，分为不同的任务批次，通过监视上一个浏览器的运行情况，再执行创建下一个浏览器对象，实现阻塞
+  - 每个浏览器对象多线程访问，实现多线程的优势，将原本的可选项记录访问失败的URL日志作为必选项，追踪错误方便。
+  - 每个浏览器运行的情况实现逻辑:
+    1. 全局维护一个列表 browser_tabs = []
+    2. 每次创建，会添加字典 {'browser': '创建的浏览器对象', 'tabs': [该浏览器创建的所有标签对象], 'time': '创建的时间', 'index': '浏览器的编号'} 到这个列表中
+    3. 通过判断
+    - 
+ 
+    
 ## 自问自答环节:
 <br/>
 
@@ -302,6 +311,7 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 ![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
 ![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
 ![image](https://github.com/user-attachments/assets/b91f9cce-6cf1-4837-a89f-6e599fb5e44e)
+
 
 
 ## 有 bug 联系作者:
