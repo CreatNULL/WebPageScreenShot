@@ -1,7 +1,7 @@
 
 # Python实现的访问网页截图
 
-## 这是什么
+## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
 <br/>
 <br/>
@@ -18,7 +18,7 @@
 
 
 
-## 由来
+## 二、由来
   以前刚开始的时候，面对 findersomething 插件提取的url，已经fofa 批量查找的 url 想着要是有个工具能帮我访问截图就好啦。
   结果，找半天，没找到，想自己实现，那时候只有一个selenium 库，于是用哪个写了一个，作为毕设，结果后面用的是否发现，玄学，有时候可以，有时候到一定数量后就访问失败，一直报错，也不知道为啥原因，它也原生不支持 post，当时通过 js 实现的 post，然后将返回的结果渲染到浏览器再截图。
   后面发现一个大佬的用go写的项目 gowitness ，确实牛逼，哈哈，但是我没找到有 POST 的参数，有时候我想试试 POST json 也许会有不一样的效果。但是它不支持似乎。
@@ -27,12 +27,12 @@
 <br/>
 <br/>
 
-## 缺点
+## 三、缺点
   - 建议 Linux 下运行，无论是结束进程和无头模式都很舒服，Windows 运行的时候会出现一个白色的背景，全屏最大，明明无头模式，结束进程还得等他慢慢来。不介意的可以，嘿嘿，或者扔到虚拟机里，桀桀桀
 
 <br/>
 
-### 更新
+### 四、更新
 #### 首次提交日期: 2024年10月5日 - 发现性能题
 - 访问到 200 - 300 个url后 CPU和内存瓶颈，猜测是访问过多的url后缓存爆照。
 
@@ -51,7 +51,7 @@
 <br/>
 <br/>
 
-## 自问自答环节:
+## 五、自问自答环节:
 <br/>
 
 ```
@@ -88,7 +88,7 @@
 <br/>
 <br/>
 
-## 依赖
+## 六、依赖
 ```text
 pip install DrissionPage
 ```
@@ -97,7 +97,7 @@ pip install DrissionPage
 <br/>
 <br/>
 
-## 使用
+## 七、使用
 DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。
 **<span style="color:red">注意:</span>**
 >     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
@@ -117,7 +117,7 @@ DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器�
 <br/>
 <br/>
 
-### 一、基本访问
+### (一)、基本使用
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com 
 ```
@@ -169,7 +169,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.co
 <br/>
 <br/>
 
-### 二、使用代理
+### (二)、使用代理
 #### 代理抓包软件
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083
@@ -224,7 +224,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 
-### 三、请求携带URL参数
+### (三)、请求携带URL参数
 ```
  python .\webPageScreenshot.py --url http://www.localhost.com --params '{\"User-Agent\": \"my-agent\"}'  --proxy http://127.0.0.1:8083
 ```
@@ -234,7 +234,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 
-### 四、携带请求json
+### (四)、携带请求json
 ```
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --json '{"page": 1, "num": 2}'
 ```
@@ -250,7 +250,7 @@ python .\webPageScreenshot.py --config .\config.ini
 <br/>
 <br/>
 
-### 五、携带请求data
+### (五)、携带请求data
 ```
 python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000  --proxy http://127.0.0.1:8083  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com" --proxy-bypass "*gvt1.com" --proxy-bypass "*gstatic.com" --data "测试=1"
 
@@ -264,7 +264,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
-### 六、携带请求 file
+### (六)、携带请求 file
 ```
 python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"config.ini\": \"./config.ini\"}' --proxy http://127.0.0.1:8080
 ```
@@ -279,7 +279,7 @@ python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"conf
 <br/>
 <br/>
 
-### 七、请求添加头部
+### (七)、请求添加头部
 
 如果需要多个头部，则使用多个 --headers 来指定
 ```
@@ -295,7 +295,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 <br/>
 <br/>
 
-### 八、添加cookie
+### (八)、添加cookie
 ```
 python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/get  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com"  --proxy http://127.0.0.1:8080   --json '{\"A\": 1}' --cookies '{\"a\": \"b\"}'
 ```
@@ -310,7 +310,7 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 <br/>
 <br/>
 
-### 九、报错:
+### (九)、报错:
 ![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
 解决:<br/>
 在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
@@ -319,7 +319,7 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 <br/>
 <br/>
 
-### 十、测试:
+### (十)、测试:
 fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程 5，超时时间设置 (6, 8, 8), 09:27:36 开始 - 09:53:01 结束, 测试期间内存基本在 2 左右 有时会升到 3 ，CPU基本较低，偶尔飙升到 98%，很快恢复。<br/>
 ![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
 ![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
