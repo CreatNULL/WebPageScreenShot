@@ -48,12 +48,13 @@
   - 后期可依据新能修改阈值，不宜低于指定的线程数，不宜太高 300 什么的
   - ![image](https://github.com/user-attachments/assets/52c87cc1-b973-40df-b253-d0c40d76de17)
 
+## 等待解决的问题
 #### 2024年10月6日-发现问题: 超时时间设置问题 <span style="color: red;">等待处理</span>
   - 优化，新增参数添加是否滚动截屏，之前的，滚动截屏，浪费时间。
   - 处理设置超时对于 s 模式不生效似乎
   - 处理 s 和 d 的两个模式经过测试返回值都是 bool  类型，之前错误理解
 
-#### 下个版本目标：添加添加js脚本功能 - 可能成功
+## 下个版本目标：添加添加js脚本功能 - 可能成功
 https://drissionpage.cn/browser_control/ele_operation/#-run_js<br/>
 ![image](https://github.com/user-attachments/assets/c599c985-eff5-4755-a4ac-ec4f2c1d3d47)<br/>
 
