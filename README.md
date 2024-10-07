@@ -55,7 +55,9 @@
 js脚本模板:
 ```
 // ==UserScript==
+// 匹配的域名
 // @match        https://*/*
+// 排除的域名
 // @exclude      *://*baidu.com/*
 // ==/UserScript==
 
