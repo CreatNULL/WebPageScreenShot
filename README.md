@@ -457,7 +457,7 @@ js脚本模板:
 
 
 
-### (九)、报错:
+### (十)、报错:
 ![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
 解决:<br/>
 在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
@@ -466,7 +466,7 @@ js脚本模板:
 <br/>
 <br/>
 
-### (十)、测试:
+### (十一)、测试:
 fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程 5，超时时间设置 (6, 8, 8), 09:27:36 开始 - 09:53:01 结束, 测试期间内存基本在 2 左右 有时会升到 3 ，CPU基本较低，偶尔飙升到 98%，很快恢复。<br/>
 ![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
 ![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
@@ -479,7 +479,7 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
 平均每分钟访问URL数量:<br/>
 ![image](https://github.com/user-attachments/assets/fbe0ed5a-ee44-4b26-ba7f-a7b3a8e9b0a3)<br/>
 
-### 十一、配置文件参数
+### 十二、配置文件参数
 ```
           'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
         'file': '',  # 读取的存储 url列表的 文件 ./url.txt
@@ -506,6 +506,7 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
         'download_path': './ScreenShot_Download',    # 程序下载路径
         'user_data_path': './ScreenShot_User_Data',    # 用户数据目录
         'del_user_data': 'False',   # 退出浏览器后，删除用户目录
+        'js': [],  # js注入的js脚本
         'force_stop_browser': 'False',  # 退出浏览器时，强制退出
         'no_sandbox': 'True',   # 不启用沙盒模式
         'no_headless': 'False',     # 关闭 无头模式
