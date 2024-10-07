@@ -49,9 +49,8 @@
 
 <br/>
 
-## 下个版本目标：添加添加js脚本功能 - 可能成功
-https://drissionpage.cn/browser_control/ele_operation/#-run_js<br/>
-![image](https://github.com/user-attachments/assets/c599c985-eff5-4755-a4ac-ec4f2c1d3d47)<br/>
+## 下个版本目标：
+无
 
 
 ### 四、更新
