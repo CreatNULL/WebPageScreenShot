@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/04755d1f-9ff2-4f7d-94f2-fd78b3e07b49)
 # Python实现的访问网页截图
 
 
@@ -50,7 +50,70 @@
 <br/>
 
 ## 下个版本目标：
-无
+利用插件，实现js脚本的注入，实现其他功能（也许可以用其他插件实现？) 缺点:只支持 d 模式。测试中发现不能使用弹窗 (否则会算成访问超时)，不过可以用js创建模态框来曲线救国哈哈
+js脚本模板:
+```
+// ==UserScript==
+// @match        https://*/*
+// @exclude      *://*baidu.com/*
+// ==/UserScript==
+
+(function() {
+    'use strict';
+// 创建模态框的函数
+    function createModal() {
+        // 创建模态框的外部容器
+        const modalOverlay = document.createElement('div');
+        modalOverlay.style.position = 'fixed';
+        modalOverlay.style.top = '0';
+        modalOverlay.style.left = '0';
+        modalOverlay.style.width = '100%';
+        modalOverlay.style.height = '100%';
+        modalOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // 透明背景
+        modalOverlay.style.display = 'flex';
+        modalOverlay.style.alignItems = 'center';
+        modalOverlay.style.justifyContent = 'center';
+        modalOverlay.style.zIndex = '1000';
+
+        // 创建模态框内容
+        const modalContent = document.createElement('div');
+        modalContent.style.backgroundColor = 'white';
+        modalContent.style.padding = '20px';
+        modalContent.style.borderRadius = '8px';
+        modalContent.style.textAlign = 'center';
+        modalContent.style.width = '80%'; // 占据页面 80%
+        modalContent.style.fontSize = '2em'; // 增大文字
+
+        // 添加文本
+        const modalText = document.createElement('p');
+        modalText.textContent = '我是好人';
+        modalContent.appendChild(modalText);
+
+        // 添加关闭按钮
+        const closeButton = document.createElement('button');
+        closeButton.textContent = '关闭';
+        closeButton.style.marginTop = '10px';
+        closeButton.onclick = function () {
+            document.body.removeChild(modalOverlay);
+        };
+        modalContent.appendChild(closeButton);
+
+        // 将内容添加到外部容器
+        modalOverlay.appendChild(modalContent);
+
+        // 将模态框添加到文档
+        document.body.appendChild(modalOverlay);
+    }
+
+// 调用函数创建并显示模态框
+    createModal();
+
+})();
+```
+效果预览:<br/>
+可以看到匹配到域名后创建模态框，弹窗显示我是好人。哈哈<br/>
+![image](https://github.com/user-attachments/assets/5d01e14e-b627-420d-a961-bc8e3c95d6f5)<br/>
+
 
 
 ### 四、更新
@@ -379,6 +442,16 @@ python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/
 <br/>
 <br/>
 <br/>
+
+### (九)、D模式下的 注入js 脚本
+排除百度，匹配其他所有，执行弹窗 `inject.js`<br/>
+```
+python .\webPageScreenshot.py --url www.baidu.com --url www.taobao.com --js .\inject.js
+```
+
+![image](https://github.com/user-attachments/assets/bc0e1a75-9415-4d14-81cb-faa2ad0d4067)<br/>
+
+
 
 ### (九)、报错:
 ![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
