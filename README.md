@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/04755d1f-9ff2-4f7d-94f2-fd78b3e07b49)
 # Python实现的访问网页截图
 
 
