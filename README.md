@@ -3,7 +3,7 @@
 
 
 ## 等待解决的问题
-'dict' object cannot be interpreted as an integer，应该是多线程遍历列表的时候，我设置了弹出元素导致的，没事等我给他加个表示 状态的key 即可，
+
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
@@ -75,6 +75,11 @@ https://drissionpage.cn/browser_control/ele_operation/#-run_js<br/>
   - 纠正参数 --download-path ，现在，它可以设置，但是实际上它没有任何意义，预留参数
   - 统一文件夹名称为 ScreenShot_ 开头,下载: ScreenShot_Download（未来可能用上） 日志: ScreenShot_Logs 插件: ScreenShot_Extensions
 <br/>
+
+(4)、'dict' object cannot be interpreted as an integer<br/>
+解决方案：<br/>
+应该是多线程遍历 维护的列表 browser_tab 列表的时候，弹出元素导致的，修改逻辑新增key值，初始化时为设置状态 active: True，关闭后为 False<br/>
+
 
 #### 更改日期: 2024年10月6日-发现问题: (解决版本: 2024年10月6日_2_WebPageScreenShot.zip)
 (1)、优化，新增参数添加是否滚动截屏，之前的，滚动截屏，浪费时间。<br/>
@@ -400,7 +405,7 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
 
 ### 十一、配置文件参数
 ```
-        'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
+          'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
         'file': '',  # 读取的存储 url列表的 文件 ./url.txt
         'method': 'GET', # 请求模式, 需要手动指定请求模式，否则 GET如果指定了data，GET也会提交data，其他同理
         'params': '',  # url 请求参数， 就是转为 /index?参数key=参数value
@@ -422,8 +427,8 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
         'browser_path': '',     # 指定使用的浏览器路径
         'local_port': '',   # 指定浏览器的端口
         'auto_port': 'False',  # 自动寻找端口
-        'download_path': '',    # 程序下载路径
-        'user_data_path': './User Data',    # 用户数据目录
+        'download_path': './ScreenShot_Download',    # 程序下载路径
+        'user_data_path': './ScreenShot_User_Data',    # 用户数据目录
         'del_user_data': 'False',   # 退出浏览器后，删除用户目录
         'force_stop_browser': 'False',  # 退出浏览器时，强制退出
         'no_sandbox': 'True',   # 不启用沙盒模式
@@ -432,13 +437,15 @@ fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程
         'ignore_certificate_errors': 'True',    # 忽略 SSL 证书错误
         'start_maximized': 'True',  # 启动时窗口最大化
         'extensions': [],   # 浏览器扩展插件
+        'del_extensions': 'False',  # 删除浏览器插件文件
         'use_system_user_path': 'False',    # 是否使用安装浏览器的系统用户目录
         'set_arguments': [],    # 设置其他 浏览器的参数
         'remove_arguments': [],  # 删除指定的浏览器参数
         'clear_arguments': 'False',     # 启动前清楚所有浏览器配置
         'full_page': 'False',   # 整页滚动截屏
         'threads': '5', # 每次打开多少的个标签页，也就是多少线程去执行
-        'output_path': '.'  # html 输出文件的路径
+        'output_path': '.',  # html 输出文件的路径
+        'no_log': 'False',   # 不输出日志文件
 ```
 ## 有 bug 联系作者:
 备注： GitHub
