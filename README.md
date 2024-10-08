@@ -17,7 +17,7 @@
   - 参考 DrissionPage 第三方库官方文档: https://drissionpage.cn/browser_control/connect_browser
 - Ctrl + C 可以结束进程，理论上，不会有残留的进程，除非强行关闭。但是如果访问的url很多，可能结束很慢，等不及的自己手动结束进程吧，或者尝试使用参数 --force-stop-browser 或者 Windows下使用 taskkill /IM chrome.exe /F,嘿嘿
 - 建议 Linux 上运行（4GB内存）
-- 指纹识别使用的是 https://github.com/EdgeSecurityTeam/EHole 的指纹库
+- 指纹识别使用的是 https://github.com/EdgeSecurityTeam/EHole 的指纹库 --finger
 - 结果输出
   - 输出文件
      (1). 一个访问成功的文件列表 success_url.txt ，提供给下一步访问等;
