@@ -27,9 +27,12 @@
      (5). 一个 result.html 记录访问成功的图片和网站，
      (6)、如果使用配置文件 --config , 首次指定会创建你指定的名称的，默认的配置文件）
      (7)、用户目录 ScreenShot_User_Data  退出后删除 --del-user-data 参数
-- 可以通过指定读取配置文件，创建和使用配置文件是同一个命令 --config 配置文件名称
+- 可以通过指定读取配置文件，创建和使用配置文件是同一个命令 --config 配置文件名称，
+- 如果输出文件的太大打不开可以找到，writeresult.py 中的split_html_file 来切割
 
 ```
+![image](https://github.com/user-attachments/assets/707d22e6-000b-4e42-8d52-caed2be1ee94)<br/>
+
 
 ## 二、由来
 ```
