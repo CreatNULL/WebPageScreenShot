@@ -3,7 +3,8 @@
 
 ## 等待解决的问题（未解决）
 修复 thread 问题
-修复指纹识别时 favicon.ico 路径匹配问题
+修复指纹识别时 favicon.ico 路径匹配问题<br/>
+![image](https://github.com/user-attachments/assets/56b1c0ce-dfdc-4e60-a742-0c606dc321f2)<br/>
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
