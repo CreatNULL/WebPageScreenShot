@@ -169,6 +169,8 @@
 ## 六、依赖
 ```text
 pip install DrissionPage
+pip install mmh3
+pip install BeautifulSoup4
 ```
 <br/>
 <br/>
