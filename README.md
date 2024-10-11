@@ -5,7 +5,7 @@
 暂无
 
 ## 最新版本:
-[2024年10月11日_3_WebPageScreenShot.zip](https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2024.10.11._4_WebPageScreenShot.zip)
+[[2024年10月11日_3_WebPageScreenShot.zip](https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2024.10.11._4_WebPageScreenShot.zip)](https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2024.10.11._4_WebPageScreenShot.zip)
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
