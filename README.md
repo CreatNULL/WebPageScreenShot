@@ -2,13 +2,7 @@
 
 
 ## 等待解决的问题（未解决）
-修复 thread 问题
-修复指纹识别时 favicon.ico 路径匹配问题<br/>
-![image](https://github.com/user-attachments/assets/56b1c0ce-dfdc-4e60-a742-0c606dc321f2)<br/>
-修改，默认使用 ehole 原项目指纹识别封装成dll后，供python调用，提高速度，当平台不是 Windows 或 Linux 时候使用原生Python实现（所以如果使用正则可能会有差异）<br/>
-![image](https://github.com/user-attachments/assets/d9834ac6-6013-4a0e-9a23-0268b1135158)<br/>
 
-![image](https://github.com/user-attachments/assets/2587c35b-2d48-497b-b795-b5988b031d46)<br/>
 
 
 ## 一、这是什么
@@ -63,6 +57,13 @@
 
 
 ## 四、更新
+#### 更改日期: 2024年10月11日-使用新增使用Ehole原本的go封装成dll，供python调用，以此提高遍历 json速度。（解决版本: 2024年10月11日_WebPageScreenShot.zip）
+修复 thread 问题
+修复指纹识别时 favicon.ico 路径匹配问题<br/>
+![image](https://github.com/user-attachments/assets/56b1c0ce-dfdc-4e60-a742-0c606dc321f2)<br/>
+修改，默认使用 ehole 原项目指纹识别封装成dll后，供python调用，提高速度，当平台不是 Windows 或 Linux 时候使用原生Python实现（所以如果使用正则可能会有差异）<br/>
+![image](https://github.com/user-attachments/assets/d9834ac6-6013-4a0e-9a23-0268b1135158)<br/>
+![image](https://github.com/user-attachments/assets/2587c35b-2d48-497b-b795-b5988b031d46)<br/>
 
 #### 更改日期: 2024年10月9日-新增指纹开启指纹识别 --finger (解决版本: 2024年10月9日_WebPageScreenShot.zip)
 #### 更改日期: 2024年10月7日-添加新的参数--js，指定d模式下js注入的脚本(解决版本: 2024年10月7日_2_WebPageScreenShot.zip)
