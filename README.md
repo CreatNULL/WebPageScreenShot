@@ -97,7 +97,6 @@ DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器�
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com 
 ```
-程序首次运行后，会创建配置文件`config.ini`
 <br/>
 <br/>
 
