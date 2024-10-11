@@ -82,7 +82,7 @@ DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器�
 ![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc)
 >     参考官方文档: https://drissionpage.cn/SessionPage/visit/#%EF%B8%8F%EF%B8%8F-post
 
-为啥我关闭了这个参数，因为，会在当前文件夹下创建了 User Data里面的一堆东西，乱死了，所以我手动指定，默认为当前文件夹下的 User Data<br/>
+为啥我设置 --auto-port 为 False，因为，会在当前文件夹下创建了 User Data里面的一堆东西，乱死了，所以我手动指定，默认为当前文件夹下的 User Data<br/>
 官方文档: https://drissionpage.cn/tutorials/functions/new_browser/#%EF%B8%8F%EF%B8%8F-auto_port%E6%96%B9%E6%B3%95<br/>
 ![image](https://github.com/user-attachments/assets/d67fadf9-d6c0-49ff-b182-8256d50699e5)
 
