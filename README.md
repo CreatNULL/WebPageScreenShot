@@ -5,7 +5,7 @@
 暂无
 
 ## 最新版本:
-2024年10月11日_3_WebPageScreenShot.zip
+[2024年10月11日_3_WebPageScreenShot.zip](https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2024.10.11._4_WebPageScreenShot.zip)
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
@@ -31,7 +31,7 @@
      (6)、如果使用配置文件 --config , 首次指定会创建你指定的名称的，默认的配置文件）
      (7)、用户目录 ScreenShot_User_Data  退出后删除 --del-user-data 参数
 - 可以通过指定读取配置文件，创建和使用配置文件是同一个命令 --config 配置文件名称，
-- 如果输出文件的太大打不开可以找到，writeresult.py 中的split_html_file 来切割
+- 如果输出文件的太大使用 --split 参数，或启动时候指定这个，100个 url一划分。
 
 ```
 ![image](https://github.com/user-attachments/assets/707d22e6-000b-4e42-8d52-caed2be1ee94)<br/>
