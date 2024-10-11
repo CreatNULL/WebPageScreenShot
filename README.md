@@ -35,142 +35,31 @@
 ![image](https://github.com/user-attachments/assets/707d22e6-000b-4e42-8d52-caed2be1ee94)<br/>
 
 
-## 二、由来
-```
-      以前刚开始学习的时候，面对 findsomething 插件提取的url后 或者 fofa 批量查找的 url 想着要是有个工具能帮我访问截图就好啦。
-但是，找半天，没找到，想自己实现，那时候只有一个selenium 库，于是用哪个写了一个，作为毕设，结果后面用的是否发现，有时候可以，有时
-候到一定数量后就访问失败，一直报错，也不知道为啥原因，它也原生不支持 post，当时通过 js 实现的 post，然后将返回的结果渲染到浏览器再
-截图。
-      后面发现一个大佬的用go写的项目 gowitness ，确实牛逼，哈哈，但是我没找到有 POST 的参数，有时候我想试试 POST json 也许会有不一
-样的效果。但是它不支持似乎。最近看到有个库，刚好国庆有时间，就自己写一个吧，哈哈。
-```
-
-<br/>
-<br/>
 
 ## 三、缺点
   - 建议 Linux 下运行，无论是结束进程和无头模式都很舒服，Windows 运行的时候会出现一个白色的背景，全屏最大，明明无头模式，结束进程还得等他慢慢来。不介意的可以，嘿嘿，或者扔到虚拟机里，桀桀桀
 
 <br/>
 
+### 报错:
+![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
+解决:<br/>
+在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
+原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿<br/>
+![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)<br/>
+<br/>
+<br/>
+
+![image](https://github.com/user-attachments/assets/b220fbe9-ad07-46ab-ba88-dae214297ac0)<br/>
+解决:<br/>
+属于正常现象
+原因: 我在启动和关闭的时候会尝试从谷歌浏览器的用户配置文件中删除插件信息，防止代理插件等影响下一次的请求
+
+
+
 ## 下个版本目标：(暂无)
 暂无
 
-## 四、更新
-#### 更改日期: 2024年10月11日-使用新增使用Ehole原本的go封装成dll，供python调用，以此提高遍历 json速度。（解决版本: 2024年10月11日_WebPageScreenShot.zip）
-修复 thread 问题
-修复指纹识别时 favicon.ico 路径匹配问题<br/>
-![image](https://github.com/user-attachments/assets/56b1c0ce-dfdc-4e60-a742-0c606dc321f2)<br/>
-修改，默认使用 ehole 原项目指纹识别封装成dll后，供python调用，提高速度，当平台不是 Windows 或 Linux 时候使用原生Python实现（所以如果使用正则可能会有差异）<br/>
-![image](https://github.com/user-attachments/assets/d9834ac6-6013-4a0e-9a23-0268b1135158)<br/>
-![image](https://github.com/user-attachments/assets/2587c35b-2d48-497b-b795-b5988b031d46)<br/>
-
-#### 更改日期: 2024年10月9日-新增指纹开启指纹识别 --finger (解决版本: 2024年10月9日_WebPageScreenShot.zip)
-#### 更改日期: 2024年10月7日-添加新的参数--js，指定d模式下js注入的脚本(解决版本: 2024年10月7日_2_WebPageScreenShot.zip)
-
-#### 更改日期: 2024年10月7日-添加新的参数，用于让输出更干净：（解决版本:2024年10月7日_WebPageScreenShot.zip）
-
-#### 更改日期: 2024年10月6日-发现问题：(解决版本: 2024年10月6日_3_WebPageScreenShot.zip)
-(1)、超时参数仅对 s 模式 和 d 模式下生效问题<br/>
-解决方案:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;经阅它的源代码，发现，只需要在配置类中，指定好三个页面超时时间，即可<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;它会依据模式自动提取 d 模式下的第二个页面加载超时时间作为timeout，<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;源文件文件路径: venv/Lib/site-packages/DrissionPage/_pages/mix_tab.py<br/>
-![image](https://github.com/user-attachments/assets/6627a938-03df-403f-bac7-4118e961726d)<br/>
-<br/>
-
-(2)、ERROR - 处理 URL http://www.localhost.com:5000 时出错: 此功能需显式设置下载路径（使用set.download_path()方法、配置对象或ini文件均可）。 对于参数的处理问题<br/>
-解决方案:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;查阅官方文档，似乎和我预想的不一样，我以为是对于访问后自动接收，保存到文件夹中，但是实际似乎需要主动去下载。
-<br/>
-
-(3)、纠正 --help 现实的帮助信息错误<br/>
-  - 纠正参数 --download-path ，现在，它可以设置，但是实际上它没有任何意义，预留参数
-  - 统一文件夹名称为 ScreenShot_ 开头,下载: ScreenShot_Download（未来可能用上） 日志: ScreenShot_Logs 插件: ScreenShot_Extensions
-<br/>
-
-(4)、'dict' object cannot be interpreted as an integer<br/>
-解决方案：<br/>
-应该是多线程遍历 维护的列表 browser_tab 列表的时候，弹出元素导致的，修改逻辑新增key值，初始化时为设置状态 active: True，关闭后为 False<br/>
-
-
-#### 更改日期: 2024年10月6日-发现问题: (解决版本: 2024年10月6日_2_WebPageScreenShot.zip)
-(1)、优化，新增参数添加是否滚动截屏，之前的，滚动截屏，浪费时间。<br/>
-解决方案: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;利用官方提供的参数，指定 full_page = False 即可 
-<br/>
-
-(2)、处理 s 和 d 的两个模式经过测试返回值都是 bool  类型，之前错误理解 <br/>
-解决方案：<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;那就去掉响应状态码吧，影响不大。 
-<br/>
-
-(3)、修复逻辑 当只启动一个浏览器时，没有关闭，或者多个的时候，没有关闭最后一个。<br/>
-解决方案:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;利用之前维护的列表 browser_tab , 该线程执行完毕，调用浏览器对象退出，退出成功，将浏览器信息弹出列表，程序运行结束，遍历列表如果存在浏览器，则调用退出方法
-<br/>
-
-(4)、新增参数，阅读官方文档发现两个新的参数， force 强制退出浏览器，和 del_data 退出后删除用户目录。(√)<br/>
-<br/>
-
-(5)、之前的不小心把启动时最大化判断参数给注释了<br/>
-<br/>
-
-#### 更改日期: 2024年10月6日，改进访问到 200多个 URL后CPU和内存飙升问题
-解决方案:
-  - 指定阈值，将输入的URL，划分为块，分为不同的任务批次，通过监视上一个浏览器的运行情况，再执行创建下一个浏览器对象，实现阻塞
-  - 每个浏览器对象多线程访问，实现多线程的优势，将原本的可选项记录访问失败的URL日志作为必选项，追踪错误方便。
-  - 每个浏览器运行的情况实现逻辑:
-    (1). 首先，全局维护一个列表 browser_tabs = [], 记录创建的浏览器信息。
-    (2). 每次创建，会添加字典 {'browser': '创建的浏览器对象', 'tabs': [该浏览器创建的所有标签对象], 'time': '创建的时间', 'index': '浏览器的编号'} 到列表中
-    (3). 通过判断 tabs 列表中的 所有标签的 states.is_alive 属性是否存活，即是否关闭，判断是否创建新的浏览器对象，但是可能会存在卡死的情况
-    (4). 处理卡死的情况，通过 time字段，首先上一次到这一次创建浏览器的时间的一半，再次判断，直到归零或者全部退出了，则判断为退出成功。
-  - 后期可依据性能修改阈值，不宜低于指定的线程数，不宜太高 300 什么的（底部有测试 1000 条 5 个线程 150 阈值的测试）
-  - ![image](https://github.com/user-attachments/assets/52c87cc1-b973-40df-b253-d0c40d76de17)
-
-
-#### 首次提交日期: 2024年10月5日 - 发现性能题
-- 访问到 200 - 300 个url后 CPU和内存瓶颈，猜测是访问过多的url后缓存爆照。
-
-<br/>
-<br/>
-
-## 五、自问自答环节:
-<br/>
-
-```
-​	我:
-​		有大佬写的截图工具，`gowitness` 而且是用 go 写的，更快，为什么还要写？
-​	答：
-​		因为我菜，不会 GO，只会Python，我只是个导包侠 ┭┮﹏┭┮,
-    而且大佬的没看到参数支持 POST
-    输出的很多图片，图片文件名，又不适合携带特殊的字符串，无法快速访问
-​	我:
-​		为啥使用这个  `DrissionPage`？不用 `Selenium`
-​	答:
-​		公众号上看到了它的介绍，以前用 `Selenium` 写过一个类似的，结束的时候总是容易僵尸进程，
-​		我的`chromedriver.exe` 死在我的后台，太惨啦，
-​		`linux` 上还好，`windows` 下 它是老大！！，我Ctrl+C 我还得等他慢慢结束
-```
-
-<br/>
-看到的公众号上的介绍:
-<br/>
-
-本库采用全自研的内核，内置了 N 多实用功能，对常用功能作了整合和优化，对比 selenium，有以下优点：
-- 无 `webdriver` 特征
-- 无需为不同版本的浏览器下载不同的驱动
-- 运行速度更快
-- 可以跨 `iframe`查找元素，无需切入切出把 `iframe` 看作普通元素，获取后可直接在其中查找元素，逻辑更清晰
-- 可以同时操作浏览器中的多个标签页，即使标签页为非激活状态，无需切换可以直接读取浏览器缓存来保存图片，无需用 GUI 点击另存
-- 可以对整个网页截图，包括视口外的部分（90以上版本浏览器支持）可处理非open状态的 shadow-root
-  
-<br/>
- 爱了爱了，我导包我快乐！！膜拜大佬
-<br/>
-<br/>
-<br/>
-<br/>
 
 ## 六、依赖
 ```text
@@ -473,29 +362,9 @@ js脚本模板:
 
 
 
-### (十)、报错:
-![image](https://github.com/user-attachments/assets/8fe3b0ae-cdf4-46b9-bbe1-fa75c32b37b5)
-解决:<br/>
-在路径.\screenshot\module\url\下的 topdomain.py 中添加域名
-原因: 我爬取了维基页面、腾讯页面、阿里页面的所有顶级，有些不常见的可能被识别为错误的域名，URL验证中为了防止误入类似1.jpg的被识别为域名，嘿嘿<br/>
-![image](https://github.com/user-attachments/assets/b85629af-c36c-4aad-bb76-2d75404dad47)<br/>
-<br/>
-<br/>
 
-### (十一)、测试:
-fofa 搜索坤坤关键字，保存数据 1 千 条，使用阈值 150 ，线程 5，超时时间设置 (6, 8, 8), 09:27:36 开始 - 09:53:01 结束, 测试期间内存基本在 2 左右 有时会升到 3 ，CPU基本较低，偶尔飙升到 98%，很快恢复。<br/>
-![3b2199d0b4c4e28413478b0974b84f3](https://github.com/user-attachments/assets/05a91183-ae5e-4bf4-a42d-328c4a8bc72f)
-![b99540e5643ea722815eb988d3ac5d2](https://github.com/user-attachments/assets/fd62707b-da5b-472b-aa3c-cf8b2281a383)
-![image](https://github.com/user-attachments/assets/b91f9cce-6cf1-4837-a89f-6e599fb5e44e)<br/>
-开始时间:<br/>
-![image](https://github.com/user-attachments/assets/e8a61b7d-2a63-4c86-9678-ac8eab28741c)<br/>
 
-结束时间:<br/>
-![image](https://github.com/user-attachments/assets/d28e35d3-65a7-4d1c-8785-4574c9a8cdf8)<br/>
-平均每分钟访问URL数量:<br/>
-![image](https://github.com/user-attachments/assets/fbe0ed5a-ee44-4b26-ba7f-a7b3a8e9b0a3)<br/>
-
-### 十二、配置文件参数
+### 配置文件参数
 ```
           'url': [],  # URL 列表，可以指定多个 ['http://www.baidu.com', 'www.taobao.com']
         'file': '',  # 读取的存储 url列表的 文件 ./url.txt
