@@ -1,4 +1,5 @@
 ## 更新
+#### 更新日期：2024年10月11日-新增参数 --split 指开启分割输出文件，如果已经输出则指定输出的路径 + 使用 --split。（解决版本: 2024年10月11日_4_WebPageScreenShot.zip)
 #### 更改日期: 2024年10月11日-使用新增使用Ehole原本的go封装成dll，供python调用，以此提高遍历 json速度。（解决版本: 2024年10月11日_WebPageScreenShot.zip）
 修复 thread 问题
 修复指纹识别时 favicon.ico 路径匹配问题<br/>
