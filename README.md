@@ -5,6 +5,11 @@
 修复 thread 问题
 修复指纹识别时 favicon.ico 路径匹配问题<br/>
 ![image](https://github.com/user-attachments/assets/56b1c0ce-dfdc-4e60-a742-0c606dc321f2)<br/>
+修改，默认使用 ehole 原项目指纹识别封装成dll后，供python调用，提高速度，当平台不是 Windows 或 Linux 时候使用原生Python实现（所以如果使用正则可能会有差异）<br/>
+![image](https://github.com/user-attachments/assets/d9834ac6-6013-4a0e-9a23-0268b1135158)<br/>
+
+![image](https://github.com/user-attachments/assets/2587c35b-2d48-497b-b795-b5988b031d46)<br/>
+
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图。
