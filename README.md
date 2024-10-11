@@ -36,7 +36,7 @@
 
 
 
-## 三、缺点
+## 二、缺点
   - 建议 Linux 下运行，无论是结束进程和无头模式都很舒服，Windows 运行的时候会出现一个白色的背景，全屏最大，明明无头模式，结束进程还得等他慢慢来。不介意的可以，嘿嘿，或者扔到虚拟机里，桀桀桀
 
 <br/>
@@ -61,7 +61,7 @@
 暂无
 
 
-## 六、依赖
+## 依赖
 ```text
 pip install DrissionPage
 pip install mmh3
@@ -72,7 +72,7 @@ pip install BeautifulSoup4
 <br/>
 <br/>
 
-## 七、使用
+## 使用
 DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。
 **<span style="color:red">注意:</span>**
 >     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
