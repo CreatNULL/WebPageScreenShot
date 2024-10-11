@@ -73,9 +73,10 @@ pip install BeautifulSoup4
 <br/>
 
 ## 使用
-DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。
-**<span style="color:red">注意:</span>**
->     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
+DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), 也许可以粗略的认为，一个类似用chromedriver 控制访问，一个用 requests 去访问。<br/>
+**<span style="color:red">注意:</span>**<br/>
+>     headers/params/data/json/file/cookies/allow_redicts 参数在 s 模式下才会生效，(headers 除外，因为我用插件实现了修改 headers ，所以当 指定了 headrs 的时候，默认不会切换到 s 模式)
+>     所以当出现这些参数的时候，可以粗略的认为，切换到了requests 去请求，
 >     官方文档内写着: https://drissionpage.cn/SessionPage/visit
 >     所以，我设置了如果携带这些参数的时候，指定的多个证书，只会读取第一个，这样你只能指定的格式为pem啦，哈哈
 ![image](https://github.com/user-attachments/assets/469fc0b6-55f0-4403-8fb0-bdca3221bcdc)
