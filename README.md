@@ -2,8 +2,7 @@
 
 
 ## 等待解决的问题（未解决）
-暂无
-
+开启指纹识别后，不开没事，开了，如果 URL数量较多，访问到大概 200 左右可能会卡死
 ## 最新版本:
 https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2024.10.11._4_WebPageScreenShot.zip
 
