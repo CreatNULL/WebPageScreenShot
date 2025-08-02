@@ -412,6 +412,4 @@ js脚本模板:
         'no_log': 'False',   # 不输出日志文件
         'finger': 'False',   # 开启指纹识别
 ```
-## 有 bug 联系作者:
-备注： GitHub
-![13f909da0b79b8341ff15a5ce5c194a](https://github.com/user-attachments/assets/c99d053d-7d1d-4353-9e9a-a11d1c14d897)
+
