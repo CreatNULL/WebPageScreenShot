@@ -9,6 +9,8 @@ https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05
 2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
 - 这次用 python12简单改了一下
 - 因为 DrissionPage 更新，有些方法变动了，之前的用不了了。
+- 比如无头模式我以前用 --headless=new 可以解决问题，现在不行了，我就换替换成了它提供的 .headless() 方法，set_paths() 没了，被拆分成几个方法了
+- 还有以前没在意 auto_port()、 set_local_port()、set_address() set_user_data_path() 之间的互斥关系。
 - 原本对出现不太正确的url直接退出，太傻逼了，有些域名可能就是奇奇怪怪的，所以现在直接改提示，对于不是, 或者感觉不是正确的url，给5秒反应时间显示，看你自己处理，要退出ctrl + C 然后接着运行
 - 把dll换了一下，不晓得会不会解决之前的问题访问到200多个总出现问题，在开启指纹识别的时候
 
