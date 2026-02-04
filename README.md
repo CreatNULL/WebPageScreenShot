@@ -2,6 +2,8 @@
 
 
 ## 等待解决的问题（未解决）
+还是有问题
+1. 退出进程残留？？什么鬼，退出很快，但是就是有残留Windows上，Linux还没试
 
 ## 最新版本:
 https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05._WebPageScreenShot.tar.gz
