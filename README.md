@@ -4,6 +4,10 @@
 ## 等待解决的问题（未解决）
 还是有问题
 1. 退出进程残留？？什么鬼，退出很快，但是就是有残留Windows上，Linux还没试 （算了，打算用类似用文件记录pid的方式确保退出成功）
+使用sqlite数据库，考虑了一下频繁读写，我不想用内存数据库，又想着微信好像有用sqlite的，就它了
+- 启动前检索数据库pid，判断是否有残留 pid，检测是否名称为 chrome ，是结束，否删除
+- 创建一个浏览器就记录一下pid
+- 结束清理 （考虑异常退出处理，用户手动退出）
 
 ## 最新版本:
 https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05._WebPageScreenShot.tar.gz
