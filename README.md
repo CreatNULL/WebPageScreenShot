@@ -200,7 +200,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
-### (六)、携带请求 file
+### (六)、携带请求 file （失效了）
 ```
 python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"config.ini\": \"./config.ini\"}' --proxy http://127.0.0.1:8080
 ```
@@ -215,7 +215,7 @@ python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"conf
 <br/>
 <br/>
 
-### (七)、请求添加头部
+### (七)、请求添加头部（失效了）
 
 如果需要多个头部，则使用多个 --headers 来指定
 ```
@@ -231,7 +231,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com  --pr
 <br/>
 <br/>
 
-### (八)、添加cookie
+### (八)、添加cookie （失效了）
 ```
 python .\webPageScreenshot.py  --method GET --url http://www.localhost.com:5000/get  --proxy-bypass "*google.com" --proxy-bypass "*alicdn.com" --proxy-bypass "*mmstat.com" --proxy-bypass "*googleapis.com"  --proxy http://127.0.0.1:8080   --json '{\"A\": 1}' --cookies '{\"a\": \"b\"}'
 ```
