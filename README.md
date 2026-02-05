@@ -2,29 +2,15 @@
 
 
 ## 等待解决的问题（未解决）
-还是有问题
-1. 退出进程残留？？什么鬼，退出很快，但是就是有残留Windows上，Linux还没试 （算了，打算用类似用文件记录pid的方式确保退出成功）
-使用sqlite数据库，考虑了一下频繁读写，我不想用内存数据库，又想着微信好像有用sqlite的，就它了
-- 启动前检索数据库pid，判断是否有残留 pid，检测是否名称为 chrome ，是结束，否删除
-- 创建一个浏览器就记录一下pid
-- 结束清理 （考虑异常退出处理，用户手动退出）
+
 
 ## 最新版本:
-https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05._WebPageScreenShot.tar.gz
-
-2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
-- 这次用 python12简单改了一下
-- 因为 DrissionPage 更新，有些方法变动了，之前的用不了了。
-- 比如无头模式我以前用 --headless=new 可以解决问题，现在不行了，我就换替换成了它提供的 .headless() 方法，set_paths() 没了，被拆分成几个方法了
-- 还有以前没在意 auto_port()、 set_local_port()、set_address() set_user_data_path() 之间的互斥关系。
-- 原本对出现不太正确的url直接退出，太傻逼了，有些域名可能就是奇奇怪怪的，所以现在直接改提示，对于不是, 或者感觉不是正确的url，给5秒反应时间显示，看你自己处理，要退出ctrl + C 然后接着运行
-- 把dll换了一下，不晓得会不会解决之前的问题访问到200多个总出现问题，在开启指纹识别的时候
+2026.02.05._WebPageScreenShot.tar.gz 最新版本
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图，以前当毕设的，当初给写烂尾了。
 <br/>
 <br/>
-
 ```
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
