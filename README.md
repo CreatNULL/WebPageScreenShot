@@ -36,8 +36,8 @@ https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05
 ![image](https://github.com/user-attachments/assets/707d22e6-000b-4e42-8d52-caed2be1ee94)<br/>
 
 
-## 下个版本目标：(暂无)
-暂无
+## 下个版本目标：
+对yakit 导出的 .har 网络包解析，然后去请求截图？
 
 ## 说明
 DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), <br />
