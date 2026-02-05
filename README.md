@@ -2,7 +2,8 @@
 
 
 ## 等待解决的问题（未解决）
-
+1. 插件加载似乎存在问题
+2. 访问出现： Handshake status 404 Not Found -+-+-
 
 ## 最新版本:
 2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
@@ -38,6 +39,7 @@ https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05
 
 ## 下个版本目标：
 对yakit 导出的 .har 网络包解析，然后去请求截图？
+请求url中式文件，则自动下载？算了┭┮﹏┭┮，也许可以指定加载 AB Download Manager 插件，或者迅雷的浏览器插件？没试过
 
 ## 关于 DrissionPage 说明
 DrissionPage 这个库分为两种访问模式：d 模式用于控制浏览器，s 模式使用requests收发数据包 (https://drissionpage.cn/browser_control/mode_change/#%EF%B8%8F-mode), <br />
