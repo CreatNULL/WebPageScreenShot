@@ -5,7 +5,8 @@
 
 
 ## 最新版本:
-2026.02.05._WebPageScreenShot.tar.gz 最新版本
+2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
+https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05._WebPageScreenShot.tar.gz
 
 ## 一、这是什么
 一个访问网页，并且截图的工具.实现快速访问，批量截图，以前当毕设的，现在突然想要批量访问url，看看截图，当初给写烂尾了，现在修修补补一下。
