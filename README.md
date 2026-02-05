@@ -3,7 +3,6 @@
 
 ## 等待解决的问题（未解决）
 1. 插件加载似乎存在问题
-2. 访问出现： Handshake status 404 Not Found -+-+-
 
 ## 最新版本:
 2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
@@ -57,6 +56,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 ```
 <br/>
 <br/>
+
 
 ##### 程序运行后：
 - 会创建目录: `ScreenShot_User_Data_Extensions` 、 `ScreenShot_User_Log` 、`ScreenShot_User_Data`、`pid_manager.db` ,分别保存设置代理时创建的插件，程序运行的日志, 浏览器用户文件夹, 记录谷歌浏览器进程pid的数据库 (为什么文件名这么长? 我不是有病哦，怕有和其它的冲突)
