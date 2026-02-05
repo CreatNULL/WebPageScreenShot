@@ -62,7 +62,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com
 <br/>
 
 ##### 程序运行后：
-- 会创建目录: `ScreenShot_User_Data_Extensions` 、 `ScreenShot_User_Log`和 `ScreenShot_User_Data` ,分别保存设置代理时创建的插件，程序运行的日志 和 浏览器用户文件夹 (为什么文件名这么长? 我不是有病哦，怕有和其它的冲突)
+- 会创建目录: `ScreenShot_User_Data_Extensions` 、 `ScreenShot_User_Log` 、`ScreenShot_User_Data`、`pid_manager.db` ,分别保存设置代理时创建的插件，程序运行的日志, 浏览器用户文件夹, 记录谷歌浏览器进程pid的数据库 (为什么文件名这么长? 我不是有病哦，怕有和其它的冲突)
 - 无头模式运行
 - 一个输出文件名为 result.html ((●'◡'●)这里我懒啦)，URL给的不要太多哦，不然html文件输出会很大，不过也不要紧，我写了切割文件的。。
 <br/>
