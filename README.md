@@ -7,6 +7,8 @@
  - 由于谷歌升级，新版本不再支持v2插件了
 2. 设置浏览器的默认下载路径不生效，真解决不了，设置了也不管用
 
+项目目前就等于烂了，看看有没有什么办法复活，但是基本的截图没啥问题
+
 ## 最新版本:
 2026.02.05._WebPageScreenShot.tar.gz 最新版本<br />
 https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05._WebPageScreenShot.tar.gz
@@ -105,7 +107,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --url https://hk.jd.co
 <br/>
 <br/>
 
-### (二)、使用代理
+### (二)、使用代理 （失效了）
 #### 代理抓包软件
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0.1:8083
@@ -122,7 +124,7 @@ python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://127.0.0
 <br/>
 <br/>
 
-#### 设置代理
+#### 设置代理 （失效了）
 ```
 python .\webPageScreenshot.py --url http://www.taobao.com --proxy http://user:pwd@127.0.0.1:8083 
 ```
@@ -200,7 +202,7 @@ python .\webPageScreenshot.py --method POST --url http://www.localhost.com:5000 
 <br/>
 <br/>
 
-### (六)、携带请求 file （失效了）
+### (六)、携带请求 file 
 ```
 python .\webPageScreenshot.py --url www.localhost.com:5000/post --files '{\"config.ini\": \"./config.ini\"}' --proxy http://127.0.0.1:8080
 ```
