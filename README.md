@@ -44,12 +44,13 @@ browser.quit()
 <img width="989" height="558" alt="Image" src="https://github.com/user-attachments/assets/024c6462-cefe-417b-a1ff-e3becdb7dc29" />
 <br />
 <br />
-发现还是存在问题<br />
+
+发现还是存在问题
 - 浏览器手动打开，手动上传zip，会被禁用，得打开开发者模式
 - 打开开发者模式:
-    - 相关配置在 `Default\Secure Preferences` 文件中的 extensions 下的  ui 下的 developer_mode 
-    - 当打开开发者模式的时候 developer_mode  值为true，否则为false
-    - 但是 Secure Preferences 这个文件首运行是没有的似乎，哈哈没招了
+ - 相关配置在 `Default\Secure Preferences` 文件中的 extensions 下的  ui 下的 developer_mode 
+ - 当打开开发者模式的时候 developer_mode  值为true，否则为false
+ - 但是 Secure Preferences 这个文件首运行是没有的似乎，哈哈没招了
 - 上传ctx失败，说无法从该网站添加应用、扩展程序和用户脚本
     - .set_argument('--enable-easy-off-store-extension-install') 可以解决
 <br />
