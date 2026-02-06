@@ -3,11 +3,57 @@
 
 ## 等待解决的问题（未解决）
 
+
 2026年2月6日<br />
-- 太好了，找到为啥我的插件不能启用了： DrissionPage 库给我自己添加了一个启动参数 --disable-extensions-except，有图有真相！<br />
+- 找到DrissionPage 库启动的浏览器为什么不能上传插件了，因为给我自己添加了一个启动参数 --disable-extensions-except，有图有真相！<br />
 <img width="1076" height="623" alt="image" src="https://github.com/user-attachments/assets/90c5c4b5-75c2-491e-86d0-3436eae1277e" />
-- 等我看完200个广告尝试复活，嘿<br />
 <br />
+这一行注释了就好了，`.venv\Lib\site-packages\DrissionPage\_functions\browser.py`
+<img width="1074" height="508" alt="Image" src="https://github.com/user-attachments/assets/b8b83684-42b6-4758-ba76-7ff5f4c629d6" />
+<br />
+还是得使用猴子补丁，注释掉源码不合理<br />
+```
+from DrissionPage import Chromium, ChromiumOptions
+import DrissionPage._functions.browser as browser_module
+
+
+old_get_launch_args = browser_module.get_launch_args
+def new_get_launch_args(opt):
+    result, user_path = old_get_launch_args(opt)
+    result = [_ for _ in result if not _.startswith('--disable-extensions-except')]
+    return result, user_path
+
+browser_module.get_launch_args = new_get_launch_args
+
+
+co = ChromiumOptions()
+co.set_user_data_path('./test/user_data')
+co.add_extension('./test/plugin')
+
+browser = Chromium(co)
+tab = browser.new_tab()
+tab.get("https://www.bing.com")
+
+input("Press Enter to exit...")
+browser.quit()
+
+```
+
+迅雷的速度比我还快🤣难道可以了，开心
+<img width="1268" height="578" alt="Image" src="https://github.com/user-attachments/assets/82f0b770-d10a-4b68-b34d-d49424b6ddf2" />
+
+<img width="989" height="558" alt="Image" src="https://github.com/user-attachments/assets/024c6462-cefe-417b-a1ff-e3becdb7dc29" />
+<br />
+<br />
+发现还是存在问题<br />
+- 浏览器手动打开，手动上传，会被禁用，得打开开发者模式，
+- 相关配置在 `Default\Secure Preferences 文件中的 extensions 下的  ui 下的 developer_mode 
+- 当打开开发者模式的时候 developer_mode  值为true，否则为false
+- 但是 Secure Preferences 这个文件首运行是没有的似乎，哈哈没招了
+<br />
+发现可能的方案<br />
+- https://developer.chrome.com/docs/extensions/how-to/distribute/install-extensions?hl=zh-cn
+- 通过注册表、偏好配置文件
 
 2026年2月5日<br />
 1. 插件、代理均失效
