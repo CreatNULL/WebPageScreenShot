@@ -2,6 +2,7 @@
 
 
 ## 等待解决的问题（未解决）
+没招了-插件加载不了
 
 2026年2月6日<br />
 - 找到DrissionPage 库启动的浏览器为什么不能上传插件了，因为添加了一个启动参数 --disable-extensions-except<br />
@@ -95,7 +96,7 @@ https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05
 - 可以通过指定读取配置文件，创建和使用配置文件是同一个命令 --config 配置文件名称，
 - 如果输出文件的太大使用 --split 参数，或启动时候指定这个，100个 url一划分。
 
-```
+
 ![image](https://github.com/user-attachments/assets/707d22e6-000b-4e42-8d52-caed2be1ee94)<br/>
 
 
