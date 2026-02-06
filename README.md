@@ -13,7 +13,31 @@
 <br />
 还是得使用猴子补丁，注释掉源码不合理<br />
 
+```python
+from DrissionPage import Chromium, ChromiumOptions
+import DrissionPage._functions.browser as browser_module
 
+
+old_get_launch_args = browser_module.get_launch_args
+def new_get_launch_args(opt):
+    result, user_path = old_get_launch_args(opt)
+    result = [_ for _ in result if not _.startswith('--disable-extensions-except')]
+    return result, user_path
+
+browser_module.get_launch_args = new_get_launch_args
+
+
+co = ChromiumOptions()
+co.set_user_data_path('./test/user_data')
+co.add_extension('./test/plugin')
+
+browser = Chromium(co)
+tab = browser.new_tab()
+tab.get("https://www.bing.com")
+
+input("Press Enter to exit...")
+browser.quit()
+```
 
 迅雷的速度比我还快🤣难道可以了，开心
 <img width="1268" height="578" alt="Image" src="https://github.com/user-attachments/assets/82f0b770-d10a-4b68-b34d-d49424b6ddf2" />
