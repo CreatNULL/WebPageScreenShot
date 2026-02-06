@@ -3,11 +3,13 @@
 
 ## 等待解决的问题（未解决）
 
-2026年2月6日
-太好了，找到为啥我的插件不能启用了，DrissionPage 库给我自己添加了一个启动参数 --disable-extensions-except<br />
-等我看完200个广告尝试复活，嘿<br />
+2026年2月6日<br />
+- 太好了，找到为啥我的插件不能启用了： DrissionPage 库给我自己添加了一个启动参数 --disable-extensions-except，有图有真相！<br />
+<img width="1076" height="623" alt="image" src="https://github.com/user-attachments/assets/90c5c4b5-75c2-491e-86d0-3436eae1277e" />
+- 等我看完200个广告尝试复活，嘿<br />
+<br />
 
-2026年2月5日
+2026年2月5日<br />
 1. 插件、代理均失效
  - 似乎由于谷歌版本的升级，导致我无法安装任何插件，显示 未启用安装功能
  - 由于谷歌升级，新版本不再支持v2插件了
