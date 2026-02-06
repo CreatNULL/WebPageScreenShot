@@ -36,7 +36,9 @@ tab.get("https://www.bing.com")
 
 input("Press Enter to exit...")
 browser.quit()
+
 ```
+
 迅雷的速度比我还快🤣难道可以了，开心
 <img width="1268" height="578" alt="Image" src="https://github.com/user-attachments/assets/82f0b770-d10a-4b68-b34d-d49424b6ddf2" />
 
