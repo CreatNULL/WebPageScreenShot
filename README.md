@@ -78,7 +78,7 @@ https://github.com/CreatNULL/WebPageScreenShot/releases/download/v1.0/2026.02.05
 一个访问网页，并且截图的工具.实现快速访问，批量截图，以前当毕设的，现在突然想要批量访问url，看看截图，当初给写烂尾了，现在修修补补一下。
 <br/>
 <br/>
-```
+
 - 支持 POST （JSON、data、file）
 - 支持 GET (json、data、file)
 - 要手动指定 POST，不然默认就是 GET，不管是否使用了 --data   --json --files
