@@ -11,6 +11,7 @@
 <img width="1074" height="508" alt="Image" src="https://github.com/user-attachments/assets/b8b83684-42b6-4758-ba76-7ff5f4c629d6" />
 <br />
 还是得使用猴子补丁，注释掉源码不合理<br />
+
 ```
 from DrissionPage import Chromium, ChromiumOptions
 import DrissionPage._functions.browser as browser_module
@@ -45,7 +46,7 @@ browser.quit()
 <br />
 发现还是存在问题<br />
 - 浏览器手动打开，手动上传，会被禁用，得打开开发者模式，
-- 相关配置在 `Default\Secure Preferences 文件中的 extensions 下的  ui 下的 developer_mode 
+- 相关配置在 `Default\Secure Preferences` 文件中的 extensions 下的  ui 下的 developer_mode 
 - 当打开开发者模式的时候 developer_mode  值为true，否则为false
 - 但是 Secure Preferences 这个文件首运行是没有的似乎，哈哈没招了
 <br />
