@@ -4,14 +4,13 @@
 ## 等待解决的问题（未解决）
 
 2026年2月6日<br />
-- 找到DrissionPage 库启动的浏览器为什么不能上传插件了，因为给我自己添加了一个启动参数 --disable-extensions-except，有图有真相！<br />
+- 找到DrissionPage 库启动的浏览器为什么不能上传插件了，因为添加了一个启动参数 --disable-extensions-except<br />
 <img width="1076" height="623" alt="image" src="https://github.com/user-attachments/assets/90c5c4b5-75c2-491e-86d0-3436eae1277e" />
 <br />
-这一行注释了就好了，`.venv\Lib\site-packages\DrissionPage\_functions\browser.py`
+这一行注释了，然后启动浏览器，打开开发者模式，可以手动上解压后的插件，`.venv\Lib\site-packages\DrissionPage\_functions\browser.py`
 <img width="1074" height="508" alt="Image" src="https://github.com/user-attachments/assets/b8b83684-42b6-4758-ba76-7ff5f4c629d6" />
 <br />
 还是得使用猴子补丁，注释掉源码不合理<br />
-
 ```
 from DrissionPage import Chromium, ChromiumOptions
 import DrissionPage._functions.browser as browser_module
@@ -37,7 +36,6 @@ tab.get("https://www.bing.com")
 input("Press Enter to exit...")
 browser.quit()
 ```
-
 迅雷的速度比我还快🤣难道可以了，开心
 <img width="1268" height="578" alt="Image" src="https://github.com/user-attachments/assets/82f0b770-d10a-4b68-b34d-d49424b6ddf2" />
 
