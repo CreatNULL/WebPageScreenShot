@@ -3,7 +3,6 @@
 
 ## 等待解决的问题（未解决）
 
-
 2026年2月6日<br />
 - 找到DrissionPage 库启动的浏览器为什么不能上传插件了，因为给我自己添加了一个启动参数 --disable-extensions-except，有图有真相！<br />
 <img width="1076" height="623" alt="image" src="https://github.com/user-attachments/assets/90c5c4b5-75c2-491e-86d0-3436eae1277e" />
@@ -36,7 +35,6 @@ tab.get("https://www.bing.com")
 
 input("Press Enter to exit...")
 browser.quit()
-
 ```
 
 迅雷的速度比我还快🤣难道可以了，开心
